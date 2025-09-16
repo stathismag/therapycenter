@@ -1,5 +1,6 @@
 #a11y-toolbar {
-  position: fixed; top: 8px; left: 8px; z-index: 3000;
+  position: fixed; top: 50%; right: 8px; z-index: 3000;
+  transform: translateY(-50%);
   background: #f8f9fa;
   border-radius: 8px; box-shadow: 0 1px 6px #bbb;
   padding: 3px 8px;
@@ -21,7 +22,6 @@
 }
 #a11y-panel button:hover, #a11y-panel a:hover { background: #e2d2f5; }
 .sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-
 /* Accessibility modifiers */
 .gray-mode { filter: grayscale(1) !important; }
 .high-contrast { filter: contrast(1.8) brightness(1.2) !important; }
