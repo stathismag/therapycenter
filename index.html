@@ -285,6 +285,30 @@
 </head>
 <body>
 
+  <!-- Accessible Toolbar -->
+  <nav id="a11y-toolbar" aria-label="Εργαλεία Προσβασιμότητας">
+    <button id="a11y-toggle" title="Εργαλεία Προσβασιμότητας" aria-haspopup="true" aria-controls="a11y-panel">
+      <span class="sr-only">Εργαλεία Προσβασιμότητας</span>
+      ☰
+    </button>
+    <div id="a11y-panel" style="display:none;">
+      <p><b>Εργαλεία Προσβασιμότητας</b></p>
+      <ul>
+        <li><button onclick="resizeFont(1)">A+</button></li>
+        <li><button onclick="resizeFont(-1)">A-</button></li>
+        <li><button onclick="toggleGray()">Γκρι</button></li>
+        <li><button onclick="toggleContrast()">Αντίθεση</button></li>
+        <li><button onclick="toggleInvert()">Αρνητικό</button></li>
+        <li><button onclick="clearContent()">Αφαίρεση Extra</button></li>
+        <li><button onclick="toggleUnderlineLinks()">Υπογράμμιση</button></li>
+        <li><button onclick="toggleLegible()">Ευανάγνωστο</button></li>
+        <li><button onclick="resetAccessibility()">Reset</button></li>
+        <li><a href="#contact">Βοήθεια</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
   <!-- HEADER -->
   <header id="header">
     <div class="container header-content">
@@ -571,6 +595,11 @@
       <p>© 2025 Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα. Όλα τα δικαιώματα διατηρούνται.</p>
     </div>
   </footer>
+
+ <!-- Accessibility scripts -->
+  <script src="js/accessibility.js"></script>
+</body>
+</html>
 
   <script>
     // Mobile Menu Toggle
