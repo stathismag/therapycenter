@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Κέντρο Λογοθεραπείας Κανδρή Χρ. Κωνσταντίνα</title>
+  <style>
+    :root {
+      --primary-color: #6e48aa;
+      --secondary-color: #9d50bb;
+      --accent1: #f8f9fa;
+      --accent2: #ff8e3c;
+      --accent3: #4ecdc4;
+      --accent4: #ff6b6b;
+      --text: #2d3436;
+      --light-text: #636e72;
+      --white: #fff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Poppins, sans-serif; }
+    body { color:var(--text); line-height:1.6; scroll-behavior:smooth; }
+    .container { width:90%; max-width:1200px; margin:0 auto; }
+    a { text-decoration:none; color:inherit; }
+    header {
+      position:fixed; top:0; width:100%; z-index:1000;
+      background: linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+      padding:15px 0; box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+    .header-content {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .logo { font-size:24px; font-weight:700; color:var(--white); }
+    .logo span { font-weight:300; color:var(--accent1); margin-left:4px; }
+    nav ul { display:flex; list-style:none; }
+    nav li { margin-left:30px; }
+    nav a {
+      color:var(--white); font-weight:500; padding:5px 0;
+      position:relative; transition:all .3s;
+    }
+    nav a::after {
+      content:''; position:absolute; left:0; bottom:0;
+      width:0; height:2px; background:var(--accent2);
+      transition: width .3s;
+    }
+    nav a:hover::after { width:100%; }
+    nav a:hover { color:var(--accent2); }
+    .mobile-menu-btn {
+      display:none; font-size:24px; cursor:pointer; color:var(--white);
+    }
+    #home.hero {
+      height:100vh; display:flex; align-items:center; position:relative;
+      background: url('images/hero.jpg') center/cover no-repeat;
+      color:var(--white); overflow:hidden;
+    }
+    #home.hero::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(110,72,170,.8),rgba(157,80,187,.8));
+      z-index:1;
+    }
+    .hero-content {
+      position:relative; z-index:2; max-width:800px; margin:auto;
+      text-align:center; animation:fadeInUp 1s ease-out;
+    }
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(40px);} to{opacity:1;transform:translateY(0);}
+    }
+    .hero-content h1 { font-size:48px; margin-bottom:10px; font-weight:700;
+      text-shadow:2px 2px 8px rgba(0,0,0,0.2);
+    }
+    .hero-content .motto {
+      font-size: 1.4em;
+      color: var(--accent2);
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .hero-content p { font-size:20px; margin-bottom:30px;
+      text-shadow:1px 1px 4px rgba(0,0,0,0.2);
+    }
+    .btn {
+      display:inline-block; padding:14px 30px; border-radius:50px;
+      background:var(--accent2); color:var(--white); font-weight:700;
+      text-transform:uppercase; letter-spacing:1px; position:relative;
+      overflow:hidden; transition:color 0.3s;
+      box-shadow:0 6px 15px rgba(255,142,60,.3);
+      z-index:1;
+    }
+    .btn::before {
+      content:'';
+      position:absolute; left:0; top:0; width:0%; height:100%;
+      background:var(--primary-color);
+      z-index:-1; transition:all 0.5s cubic-bezier(.4,2,.3,1);
+    }
+    .btn:hover::before { width:100%; }
+    .btn:hover {
+      color:var(--white);
+      transform:translateY(-5px);
+      box-shadow:0 10px 20px rgba(110,72,170,.3);
+    }
+    .btn:focus { outline: 2px solid var(--primary-color); }
+
+    .section-title { text-align:center; margin-bottom:60px; position:relative; }
+    .section-title h2 {
+      display:inline-block; font-size:36px; font-weight:700; color:var(--text);
+      position:relative; z-index:1;
+    }
+    .section-title h2::before {
+      content:''; position:absolute; top:-10px; left:-15px;
+      width:40px;height:40px;border-radius:50%;background:#c8a4f4;opacity:.5;
+    }
+    .section-title h2::after {
+      content:''; position:absolute; bottom:-10px; left:50%;
+      transform:translateX(-50%); width:100px; height:4px;
+      background:linear-gradient(to right,var(--primary-color),var(--secondary-color));
+      border-radius:2px;
+    }
+    #about .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .about-col {
+      flex: 1 1 0;
+      min-width: 300px;
+    }
+    .about-text p { margin-bottom:15px; color:var(--light-text); line-height:1.8; }
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent1);
+      color: var(--primary-color);
+      font-size: 22px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: var(--white);
+    }
+    .space-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .space-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(110,72,170,0.07);
+      object-fit: cover;
+      height: 130px;
+      background: #eee;
+    }
+    .gallery-caption {
+      text-align: center;
+      font-size: 15px;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      margin-top: 6px;
+    }
+    @media (max-width: 900px) {
+      #about .about-content { flex-direction: column; }
+      .space-gallery { grid-template-columns: 1fr; }
+    }
+    /* SERVICES */
+    #services.services {
+      padding:100px 0; background:var(--accent1); position:relative; overflow:hidden;
+    }
+    .services-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;
+    }
+    .service-card {
+      background:var(--white); border-radius:20px; padding:40px 30px;
+      text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.05);
+      position:relative; overflow:hidden; transition:all .5s;
+      border-bottom:5px solid transparent;
+    }
+    .service-card:nth-child(1){border-bottom-color:var(--accent2);}
+    .service-card:nth-child(2){border-bottom-color:var(--accent3);}
+    .service-card:nth-child(3){border-bottom-color:var(--accent4);}
+    .service-icon {
+      font-size:40px; width:90px;height:90px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;margin:0 auto 30px;
+    }
+    .service-card:nth-child(1) .service-icon{background:var(--accent2);color:var(--white);}
+    .service-card:nth-child(2) .service-icon{background:var(--accent3);color:var(--white);}
+    .service-card:nth-child(3) .service-icon{background:var(--accent4);color:var(--white);}
+    .service-card h3 { color:var(--primary-color); font-size:22px; margin-bottom:15px; }
+    .service-card p { color:var(--light-text); font-size:15px; line-height:1.7; }
+    .service-card ul { list-style:none; text-align:left; margin-top:20px; color:var(--light-text); }
+    .service-card ul li {
+      position:relative; padding-left:12px; margin-bottom:8px;
+    }
+    .service-card ul li::before {
+      content:'•'; position:absolute; left:0; color:var(--primary-color);
+    }
+    /* TEAM */
+    #team.team {
+      padding:120px 0; background:var(--white);
+    }
+    .team-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px;
+    }
+    .team-member {
+      background:var(--white); border-radius:20px; overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,.05); transition:all .5s; text-align:center;
+    }
+    .member-image { overflow:hidden; }
+    .member-image img {
+      width:100%; height:300px; object-fit:cover; transition:transform .5s;
+    }
+    .team-member:hover .member-image img { transform:scale(1.1); }
+    .member-info { padding:25px 20px; position:relative; }
+    .member-info h3 { color:var(--primary-color); font-size:20px; margin-bottom:5px; }
+    .member-info p { color:var(--light-text); font-size:14px; }
+    /* TESTIMONIALS */
+    #testimonials.testimonials {
+      padding:100px 0; background:var(--accent1);
+    }
+    .testimonial-container { max-width:800px; margin:0 auto; }
+    .testimonial {
+      background:var(--white); padding:30px; border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,.05); margin-bottom:30px;
+    }
+    .testimonial-text p { font-style:italic; margin-bottom:20px; }
+    .testimonial-author { display:flex; align-items:center; }
+    .author-avatar {
+      width:50px;height:50px;border-radius:50%; overflow:hidden; margin-right:15px;
+    }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info h4 { margin-bottom:5px; }
+    .author-info p { color:var(--light-text); font-size:14px; }
+    /* CONTACT */
+    #contact.contact {
+      padding:100px 0; background:var(--white);
+    }
+    .contact-content { display:flex; flex-wrap:wrap; gap:40px; }
+    .contact-info { flex:1; min-width:300px; }
+    .contact-info-item {
+      display:flex; align-items:flex-start; margin-bottom:20px;
+    }
+    .contact-icon {
+      width:40px;height:40px;border-radius:50%;
+      background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+      display:flex;align-items:center;justify-content:center;color:var(--white);
+      font-size:18px; margin-right:15px;
+    }
+    .contact-form { flex:1; min-width:300px; }
+    .contact-form h3 { margin-bottom:20px; }
+    .form-group { margin-bottom:20px; }
+    .form-control {
+      width:100%; padding:12px; border:1px solid #ddd; border-radius:5px;
+      font-size:16px;
+    }
+    .submit-btn {
+      background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+      color:var(--white); border:none; padding:12px 30px;
+      border-radius:5px; font-weight:700; cursor:pointer; transition:all .3s;
+    }
+    .submit-btn:hover { transform:translateY(-3px); box-shadow:0 5px 15px rgba(0,0,0,.1); }
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+      color:var(--white); padding:50px 0 20px;
+      text-align: center;
+    }
+    @media(max-width:768px){
+      .mobile-menu-btn { display:block; }
+      nav ul { display:none; flex-direction:column; position:absolute; top:60px; left:0;
+        width:100%; background:var(--primary-color); padding:20px;
+      }
+      nav ul.active { display:flex; }
+      nav li { margin:10px 0; }
+      .about-content, .contact-content { flex-direction:column; }
+      .services-grid, .team-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container header-content">
+      <div class="logo">Κέντρο<span>Θεραπείας</span></div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="#home">Αρχική</a></li>
+          <li><a href="#about">Σχετικά</a></li>
+          <li><a href="#services">Υπηρεσίες</a></li>
+          <li><a href="#team">Ομάδα</a></li>
+          <li><a href="#testimonials">Μαρτυρίες</a></li>
+          <li><a href="#contact">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn" id="mobile-btn">☰</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content container">
+      <h1>Κέντρο Λογοθεραπείας Κανδρή Χρ. Κωνσταντίνα</h1>
+      <div class="motto">Γιατί…<br>Κάθε Λέξη Μετράει❗</div>
+      <p>Πρόληψη – Διάγνωση – Θεραπεία – Αποκατάσταση</p>
+      <a href="#contact" class="btn">Κλείστε Ραντεβού</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title"><h2>Σχετικά με εμάς</h2></div>
+      <div class="about-content">
+        <div class="about-col about-text">
+          <p>Το Κέντρο μας ιδρύθηκε το 2010 στον Πύργο Ηλείας με στόχο την έγκαιρη πρόληψη, διάγνωση και αποκατάσταση διαταραχών λόγου, επικοινωνίας, μάθησης και συναισθηματικής ανάπτυξης.</p>
+          <p>Η ομάδα μας αποτελείται από εμπειρογνώμονες λογοθεραπευτές, εργοθεραπευτές, παιδαγωγούς και ψυχολόγους με πάνω από 15 χρόνια εμπειρίας.</p>
+          <p>Προσφέρουμε εξατομικευμένα προγράμματα σε παιδιά και ενήλικες, σε ένα ζεστό και φιλικό περιβάλλον.</p>
+          <h4 style="color: var(--primary-color); margin-top:32px;">Σχετικά με εμάς</h4>
+          <p>
+            Η υπεύθυνη του κέντρου, Κωνσταντίνα Κανδρή, είναι Λογοθεραπεύτρια - Ειδική Παιδαγωγός M.Ed. με εξειδίκευση στον Αυτισμό και τη Δυσλεξία. Είναι πτυχιούχος του τμήματος Λογοθεραπείας Πατρών με μεταπτυχιακές σπουδές (Master) στην Ειδική Αγωγή και Εκπαίδευση στο Πανεπιστήμιο Λευκωσίας σε συνεργασία με το Πανεπιστήμιο Πατρών.
+          </p>
+          <p>
+            Είναι πιστοποιημένη Σύμβουλος χορήγησης Αθηνά Τεστ (Διάγνωση Δυσκολιών Μάθησης), και πιστοποιημένη στην ανίχνευση και πρώιμη ανίχνευση αυτισμού με τη σταθμισμένη δοκιμασία “παις” και τα διαγνωστικά εργαλεία ADOS και ADI-R από το Πανεπιστήμιο Μακεδονίας. Επίσης, έχει λάβει πιστοποίηση στη μέθοδο S.C.E.R.T.S. (ενίσχυση της κοινωνικής επικοινωνίας, τη συναισθηματική ρύθμιση και την υποστήριξη της ικανότητας συνδιαλλαγής) για άτομα στο φάσμα του αυτισμού.
+          </p>
+          <p>
+            Είναι εκπαιδευμένη στη μέθοδο PECS επίπεδο 1 για άτομα με διαταραχές στο φάσμα του αυτισμού ή άλλες διαταραχές επικοινωνίας χωρίς λειτουργικό λόγο και στη μέθοδο ABA (Εφαρμοσμένη Ανάλυση Συμπεριφοράς) για μαθητές με αυτισμό και άλλες σοβαρές αναπτυξιακές διαταραχές. Ακόμα, είναι εκπαιδευμένη στη δομημένη διδασκαλία TEACCH (Θεραπεία και Εκπαίδευση Παιδιών με Αυτισμό και Διαταραχές Επικοινωνίας) με πιστοποίηση από το Πανεπιστήμιο της Βόρειας Καρολίνας Η.Π.Α. και στη μέθοδο Greenspan Floortime Approach από το Greenspan Floortime Center Η.Π.Α.
+          </p>
+          <p>
+            Επιπλέον, έχει μετεκπαιδευτεί σε πλήθος επιμορφωτικών προγραμμάτων και πρακτικών σεμιναρίων όπως Αισθητηριακή Ολοκλήρωση & Αυτισμός, Παιγνιοθεραπεία για Παιδιά & Εφήβους, Αυτορρύθμιση στο σχολείο για παιδιά με Αυτισμό, Διάσπαση Προσοχής ή Αισθητηριακές και Συναισθηματικές Διαταραχές κ.α.
+          </p>
+          <p style="font-weight: 600; color: var(--primary-color); margin-top:20px;">
+            👉 Ακολουθήστε μας!
+          </p>
+          <div class="social-links" style="margin-bottom: 25px;">
+            <a href="https://facebook.com/" target="_blank" title="Facebook"><span>📘</span></a>
+            <a href="https://instagram.com/" target="_blank" title="Instagram"><span>📸</span></a>
+          </div>
+          <div style="font-size: 1.2em; color: var(--primary-color); font-weight: bold; margin-top: 35px; text-align:center;">
+            Αφοσιωμένοι στην ολιστική φροντίδα
+          </div>
+        </div>
+        <div class="about-col">
+          <div class="gallery-caption"><strong>Ο χώρος μας</strong></div>
+          <div class="space-gallery">
+            <img src="images/room1.jpg" alt="Αίθουσα Θεραπειών">
+            <img src="images/room2.jpg" alt="Παιδικός Χώρος">
+            <img src="images/room3.jpg" alt="Γραφείο Συμβουλευτικής">
+            <img src="images/room4.jpg" alt="Αίθουσα Εκπαίδευσης">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title"><h2>Οι Υπηρεσίες μας</h2></div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🗣️</div>
+          <h3>Λογοθεραπεία</h3>
+          <p>Αξιολόγηση & θεραπεία διαταραχών λόγου, ομιλίας, επικοινωνίας και φωνής.</p>
+          <ul>
+            <li>Αρθρωτικές διαταραχές</li>
+            <li>Γλωσσικές δυσκολίες</li>
+            <li>Τραυλισμός</li>
+            <li>Φωνητικές παρεμβάσεις</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧩</div>
+          <h3>Εργοθεραπεία</h3>
+          <p>Ανάπτυξη δεξιοτήτων αυτοεξυπηρέτησης, κινητικότητας και αισθητηριακής ολοκλήρωσης.</p>
+          <ul>
+            <li>Λεπτή & αδρή κινητικότητα</li>
+            <li>Αισθητηριακή ολοκλήρωση</li>
+            <li>Οπτικο-κινητικός συντονισμός</li>
+            <li>Δεξιότητες καθημερινότητας</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <h3>Ειδική Διαπαιδαγώγηση</h3>
+          <p>Εξατομικευμένα προγράμματα για μαθησιακές δυσκολίες και ΔΕΠ-Υ.</p>
+          <ul>
+            <li>Αξιολόγηση μαθησιακών δυσκολιών</li>
+            <li>Υποστήριξη σε ΔΕΠ-Υ</li>
+            <li>Ανάγνωση & γραφή</li>
+            <li>Προσαρμοσμένα μελέτης</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧠</div>
+          <h3>Ψυχοπαιδαγωγική Παρέμβαση</h3>
+          <p>Πρόγραμμα προαγωγής της ψυχικής υγείας παιδιών, εστιάζει στη βελτίωση της κοινωνικής συμπεριφοράς, της επικοινωνίας, της συναισθηματικής ωρίμανσης και των γνωστικών δεξιοτήτων.</p>
+          <ul>
+            <li>Κοινωνικές δεξιότητες & προσαρμογή</li>
+            <li>Ομαλή ωρίμανση συναισθημάτων</li>
+            <li>Ανάπτυξη δεξιοτήτων προσοχής & μνήμης</li>
+            <li>Συμβολικό παιχνίδι & αυτονομία</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👪</div>
+          <h3>Συμβουλευτική Γονέων</h3>
+          <p>Υποστηρικτικές συνεδρίες για γονείς, με στόχο την ενίσχυση της επικοινωνίας, τη διαχείριση συμπεριφοράς και τη συναισθηματική στήριξη του παιδιού.</p>
+          <ul>
+            <li>Αντιμετώπιση ενδοοικογενειακών εντάσεων</li>
+            <li>Σταθερά όρια & θετική ενίσχυση</li>
+            <li>Διαχείριση άγχους & φοβιών του παιδιού</li>
+            <li>Ενίσχυση σχολικής εμπλοκής & μάθησης</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="team">
+    <div class="container">
+      <div class="section-title"><h2>Η Ομάδα μας</h2></div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="images/team1.jpg" alt="Άννα Παπαδοπούλου">
+          </div>
+          <div class="member-info">
+            <h3>Άννα Παπαδοπούλου</h3>
+            <p>Λογοθεραπεύτρια</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="images/team2.jpg" alt="Γιώργος Δημητρίου">
+          </div>
+          <div class="member-info">
+            <h3>Γιώργος Δημητρίου</h3>
+            <p>Εργοθεραπευτής</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="images/team3.jpg" alt="Ελένη Αντωνίου">
+          </div>
+          <div class="member-info">
+            <h3>Ελένη Αντωνίου</h3>
+            <p>Ειδική Παιδαγωγός</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="images/team4.jpg" alt="Νίκος Κωνσταντίνου">
+          </div>
+          <div class="member-info">
+            <h3>Νίκος Κωνσταντίνου</h3>
+            <p>Ψυχολόγος</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-title"><h2>Τι λένε για εμάς</h2></div>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <div class="testimonial-text">
+            <p>«Ο γιος μας αγαπάει τις συνεδρίες και έχει καταπληκτική πρόοδο!»</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="images/user1.jpg" alt="Μαρία Κ.">
+            </div>
+            <div class="author-info">
+              <h4>Μαρία Κ.</h4>
+              <p>Μητέρα του Γιάννη, 5 ετών</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text">
+            <p>«Ευχαριστούμε για την αγάπη και την υποστήριξη στην κόρη μας!»</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="images/user2.jpg" alt="Δημήτρης & Άννα Μ.">
+            </div>
+            <div class="author-info">
+              <h4>Δημήτρης & Άννα Μ.</h4>
+              <p>Γονείς της Σοφίας, 7 ετών</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title"><h2>Επικοινωνήστε μαζί μας</h2></div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Στοιχεία Επικοινωνίας</h3>
+          <div class="contact-info-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Διεύθυνση</h4>
+              <p>28ης Οκτωβρίου 28, 3ος Όροφος, Πύργος Ηλείας 27100</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Τηλέφωνο</h4>
+              <p>+30 2621 029798</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@kentrologotherapeias.gr</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://facebook.com/" target="_blank" title="Facebook"><span>📘</span></a>
+            <a href="https://instagram.com/" target="_blank" title="Instagram"><span>📸</span></a>
+          </div>
+          <div style="margin-top:20px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3120.1234567890123!2d21.2345678901234!3d37.6789012345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1234567890abc%3A0x1234567890abcdef!2z0JrQsNC70LjRhtC10L3QuNC1INCc0L7Qv9Cw0YDRgtC40LrQsCDQv9C10L3QuNC1!5e0!3m2!1sel!2sgr!4v1234567890123" width="100%" height="200" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <form class="contact-form">
+          <input type="text" class="form-control" placeholder="Ονοματεπώνυμο" required>
+          <input type="email" class="form-control" placeholder="Email" required>
+          <input type="tel" class="form-control" placeholder="Τηλέφωνο">
+          <textarea class="form-control" rows="5" placeholder="Μήνυμα" required></textarea>
+          <button type="submit" class="submit-btn">Αποστολή Μηνύματος</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Κέντρο Λογοθεραπείας Κανδρή Χρ. Κωνσταντίνα. Όλα τα δικαιώματα διατηρούνται.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('nav ul').classList.toggle('active');
+    });
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        document.querySelector('nav ul').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
