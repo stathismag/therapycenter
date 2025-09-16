@@ -220,23 +220,8 @@
     .member-info { padding:25px 20px; position:relative; }
     .member-info h3 { color:var(--primary-color); font-size:20px; margin-bottom:5px; }
     .member-info p { color:var(--light-text); font-size:14px; }
-    /* TESTIMONIALS */
-    #testimonials.testimonials {
-      padding:100px 0; background:var(--accent1);
-    }
-    .testimonial-container { max-width:800px; margin:0 auto; }
-    .testimonial {
-      background:var(--white); padding:30px; border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,.05); margin-bottom:30px;
-    }
-    .testimonial-text p { font-style:italic; margin-bottom:20px; }
-    .testimonial-author { display:flex; align-items:center; }
-    .author-avatar {
-      width:50px;height:50px;border-radius:50%; overflow:hidden; margin-right:15px;
-    }
-    .author-avatar img { width:100%; height:100%; object-fit:cover; }
-    .author-info h4 { margin-bottom:5px; }
-    .author-info p { color:var(--light-text); font-size:14px; }
+
+    
     /* CONTACT */
     #contact.contact {
       padding:100px 0; background:var(--white);
@@ -286,26 +271,21 @@
 <body>
   
 <!-- HEADER -->
-<header id="header">
-  <div class="container header-content">
-    <div class="logo">
-      <a href="/">
-        <img src="assets/logo.webp" >
-        <span>Κέντρο <span>Ειδικών Θεραπειών</span>
+  <header id="header">
+    <div class="container header-content">
+      <div class="logo">Κέντρο<span>Ειδικών Θεραπειών</span></div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="#home">Αρχική</a></li>
+          <li><a href="#about">Σχετικά</a></li>
+          <li><a href="#services">Υπηρεσίες</a></li>
+          <li><a href="#team">Ομάδα</a></li>
+         <li><a href="#contact">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn" id="mobile-btn">☰</div>
     </div>
-    <nav>
-      <ul id="nav-list">
-        <li><a href="#home">Αρχική</a></li>
-        <li><a href="#about">Σχετικά</a></li>
-        <li><a href="#services">Υπηρεσίες</a></li>
-        <li><a href="#team">Ομάδα</a></li>
-        <li><a href="#contact">Επικοινωνία</a></li>
-      </ul>
-    </nav>
-    <div class="mobile-menu-btn" id="mobile-btn">☰</div>
-  </div>
-</header>
-
+  </header>
 
   <!-- HERO -->
   <section id="home" class="hero">
@@ -618,6 +598,7 @@
   </script>
 </body>
 </html>
+
 
 
 
