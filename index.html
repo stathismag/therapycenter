@@ -284,30 +284,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Accessible Toolbar -->
-  <nav id="a11y-toolbar" aria-label="Εργαλεία Προσβασιμότητας">
-    <button id="a11y-toggle" title="Εργαλεία Προσβασιμότητας" aria-haspopup="true" aria-controls="a11y-panel">
-      <span class="sr-only">Εργαλεία Προσβασιμότητας</span>
-      ☰
-    </button>
-    <div id="a11y-panel" style="display:none;">
-      <p><b>Εργαλεία Προσβασιμότητας</b></p>
-      <ul>
-        <li><button onclick="resizeFont(1)">A+</button></li>
-        <li><button onclick="resizeFont(-1)">A-</button></li>
-        <li><button onclick="toggleGray()">Γκρι</button></li>
-        <li><button onclick="toggleContrast()">Αντίθεση</button></li>
-        <li><button onclick="toggleInvert()">Αρνητικό</button></li>
-        <li><button onclick="clearContent()">Αφαίρεση Extra</button></li>
-        <li><button onclick="toggleUnderlineLinks()">Υπογράμμιση</button></li>
-        <li><button onclick="toggleLegible()">Ευανάγνωστο</button></li>
-        <li><button onclick="resetAccessibility()">Reset</button></li>
-        <li><a href="#contact">Βοήθεια</a></li>
-      </ul>
-    </div>
-  </nav>
-  
   
   <!-- HEADER -->
   <header id="header">
@@ -596,8 +572,26 @@
     </div>
   </footer>
 
- <!-- Accessibility scripts -->
-  <script src="js/accessibility.js"></script>
+<!-- Accessibility Toolbar -->
+<link rel="stylesheet" href="css/accessibility.css">
+<nav id="a11y-toolbar" aria-label="Εργαλειοθήκη Προσβασιμότητας">
+  <button id="a11y-toggle" aria-controls="a11y-panel" aria-expanded="false" title="Προβολή προσβασιμότητας">♿</button>
+  <div id="a11y-panel" style="display:none;">
+    <ul>
+      <li><button onclick="resizeFont(1)" title="Μεγέθυνση γραμματοσειράς">A+</button></li>
+      <li><button onclick="resizeFont(-1)" title="Σμίκρυνση γραμματοσειράς">A-</button></li>
+      <li><button onclick="toggleGray()" title="Γκρι κλίμακα">⚫ Γκρι</button></li>
+      <li><button onclick="toggleContrast()" title="Υψηλή αντίθεση">🌗 Αντίθεση</button></li>
+      <li><button onclick="toggleInvert()" title="Αντιστροφή χρωμάτων">🔃 Αντιστροφή</button></li>
+      <li><button onclick="toggleUnderlineLinks()" title="Υπογράμμιση συνδέσμων">_Σύνδεσμοι_</button></li>
+      <li><button onclick="toggleLegible()" title="Ευαναγνωσία κειμένου">🔡 Ευαναγνωσία</button></li>
+      <li><button onclick="clearContent()" title="Απόκρυψη extra περιεχομένων">🧹 Εστίαση</button></li>
+      <li><button onclick="resetAccessibility()" title="Επαναφορά ρυθμίσεων">↺ Επαναφορά</button></li>
+    </ul>
+  </div>
+</nav>
+<script src="js/accessibility.js"></script>
+
 </body>
 </html>
 
@@ -619,6 +613,7 @@
   </script>
 </body>
 </html>
+
 
 
 
