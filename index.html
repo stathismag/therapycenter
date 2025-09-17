@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+  <!-- Inside the <head> tag -->
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα</title>
@@ -271,21 +274,27 @@
 <body>
   
 <!-- HEADER -->
-  <header id="header">
-    <div class="container header-content">
-      <div class="logo">Κέντρο<span>Ειδικών Θεραπειών</span></div>
-      <nav>
-        <ul id="nav-list">
-          <li><a href="#home">Αρχική</a></li>
-          <li><a href="#about">Σχετικά</a></li>
-          <li><a href="#services">Υπηρεσίες</a></li>
-          <li><a href="#team">Ομάδα</a></li>
-         <li><a href="#contact">Επικοινωνία</a></li>
-        </ul>
-      </nav>
-      <div class="mobile-menu-btn" id="mobile-btn">☰</div>
-    </div>
-  </header>
+<header id="header">
+  <div class="container header-content">
+    <a href="#home" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+      <img src="assets/logo.png" alt="Κέντρο Ειδικών Θεραπειών Logo" style="height:40px; margin-right: 12px;">
+      <span style="font-size: 1.5em; font-weight: bold; color: #222;">
+        Κέντρο<span style="color: #007b8e; margin-left: 4px;">Ειδικών Θεραπειών</span>
+      </span>
+    </a>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="#home">Αρχική</a></li>
+        <li><a href="#about">Σχετικά</a></li>
+        <li><a href="#services">Υπηρεσίες</a></li>
+        <li><a href="#team">Ομάδα</a></li>
+        <li><a href="#contact">Επικοινωνία</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu-btn" id="mobile-btn">☰</div>
+  </div>
+</header>
+
 
   <!-- HERO -->
   <section id="home" class="hero">
@@ -674,6 +683,7 @@
   </script>
 </body>
 </html>
+
 
 
 
