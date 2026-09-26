@@ -227,6 +227,9 @@ section { padding: 96px 0; }
 .submit-btn { width: 100%; }
 .form-note { font-size: 14px; color: var(--light-text); margin-top: 14px; }
 .form-note.error { color: #b71c1c; font-weight: 600; }
+.form-note.success { color: #1b5e20; font-weight: 700; background: #e8f5e9; padding: 12px 14px; border-radius: 10px; }
+.submit-btn:disabled { opacity: .7; cursor: wait; transform: none; }
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .map { margin-top: 48px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .map iframe { display: block; }
 
@@ -307,3 +310,5 @@ footer a { color: var(--white); font-weight: 600; }
 .legal p, .legal li { color: var(--light-text); margin-bottom: 12px; }
 .legal ul { padding-left: 22px; }
 .legal code { background: var(--accent1); padding: 1px 6px; border-radius: 4px; }
+.thanks { text-align: center; min-height: 70vh; }
+.thanks .btn { color: var(--white); margin-top: 16px; }

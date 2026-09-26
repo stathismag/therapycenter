@@ -54,34 +54,49 @@
     });
   }
 
-  // Contact form: validate, then open the visitor's email app with the message filled in.
-  // (The site is static and has no server to send email; replace with a form service if one is set up.)
+  // Contact form: validate, then submit to Netlify Forms without leaving the page.
+  // Without JavaScript the form still posts normally and Netlify shows thank-you.html.
   var form = document.getElementById('contact-form');
   var note = document.getElementById('form-note');
+  var submitBtn = form.querySelector('.submit-btn');
+  var fields = ['name', 'phone', 'email', 'message'].map(function (n) { return form.elements[n]; });
+
+  function setNote(html, cls) {
+    note.className = 'form-note' + (cls ? ' ' + cls : '');
+    note.innerHTML = html;
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var firstInvalid = null;
-    Array.prototype.forEach.call(form.elements, function (el) {
-      if (!el.name) return;
+    fields.forEach(function (el) {
       var ok = el.checkValidity() && (!el.required || el.value.trim() !== '');
       el.setAttribute('aria-invalid', String(!ok));
       if (!ok && !firstInvalid) firstInvalid = el;
     });
     if (firstInvalid) {
-      note.classList.add('error');
-      note.textContent = 'Παρακαλούμε συμπληρώστε σωστά τα πεδία με αστερίσκο (*).';
+      setNote('Παρακαλούμε συμπληρώστε σωστά τα πεδία με αστερίσκο (*).', 'error');
       firstInvalid.focus();
       return;
     }
-    var f = form.elements;
-    var body = 'Ονοματεπώνυμο: ' + f.name.value.trim() +
-      '\nΤηλέφωνο: ' + f.phone.value.trim() +
-      (f.email.value.trim() ? '\nEmail: ' + f.email.value.trim() : '') +
-      '\n\n' + f.message.value.trim();
-    note.classList.remove('error');
-    note.textContent = 'Ανοίγει η εφαρμογή email σας — πατήστε «Αποστολή» εκεί για να ολοκληρωθεί.';
-    window.location.href = 'mailto:konnakandri@gmail.com?subject=' +
-      encodeURIComponent('Αίτημα επικοινωνίας - ' + f.name.value.trim()) +
-      '&body=' + encodeURIComponent(body);
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Αποστολή…';
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      fields.forEach(function (el) { el.removeAttribute('aria-invalid'); });
+      setNote('✅ Ευχαριστούμε! Λάβαμε το μήνυμά σας και θα επικοινωνήσουμε μαζί σας σύντομα.', 'success');
+    }).catch(function () {
+      setNote('Δυστυχώς το μήνυμα δεν στάλθηκε. Καλέστε μας στο <a href="tel:+302621029798">26210 29798</a> ' +
+        'ή στείλτε email στο <a href="mailto:konnakandri@gmail.com">konnakandri@gmail.com</a>.', 'error');
+    }).then(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Αποστολή Μηνύματος';
+    });
   });
 })();

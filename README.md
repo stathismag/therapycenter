@@ -19,9 +19,9 @@
 - **Πολιτική απορρήτου:** `privacy.html`. Αν προστεθεί νέα υπηρεσία (π.χ. φόρμα μέσω Netlify), ενημερώστε την.
 - **Φωτογραφίες ομάδας:** βάλτε την εικόνα στο `assets/team/` και αντικαταστήστε το
   `<div class="member-avatar">ΚΚ</div>` με `<img src="assets/team/kandri.webp" alt="Κανδρή Κωνσταντίνα">`.
-- **Φόρμα επικοινωνίας:** ανοίγει την εφαρμογή email του επισκέπτη με έτοιμο μήνυμα προς
-  konnakandri@gmail.com (η σελίδα είναι στατική και δεν έχει server). Για αποστολή απευθείας από
-  τη σελίδα χρειάζεται υπηρεσία φορμών (π.χ. Netlify Forms, Formspree).
+- **Φόρμα επικοινωνίας:** στέλνεται μέσω Netlify Forms (φόρμα `contact`). Τα μηνύματα φαίνονται στο
+  Netlify → Project → Forms. Για ειδοποίηση με email: Project configuration → Notifications →
+  Emails and webhooks → Form submission notifications → Add notification → Email notification.
 
 ## Τοπική προβολή
 
