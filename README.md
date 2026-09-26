@@ -23,6 +23,15 @@
   Netlify → Project → Forms. Για ειδοποίηση με email: Project configuration → Notifications →
   Emails and webhooks → Form submission notifications → Add notification → Email notification.
 
+## Σελίδες υπηρεσιών
+
+Οι σελίδες `/logotherapeia/`, `/ergotherapeia/`, `/eidiki-agogi/`, `/psychologos/` και
+`/proimi-paremvasi-autismos/` παράγονται αυτόματα. Για αλλαγή κειμένου:
+
+1. επεξεργαστείτε το `tools/services_content.py`
+2. τρέξτε `python3 tools/build_services.py` (ξαναφτιάχνει τις σελίδες και το `sitemap.xml`)
+3. κάντε commit τα αρχεία που άλλαξαν
+
 ## SEO
 
 - Κύρια διεύθυνση: https://logotherapeia-pyrgos.gr/ (canonical σε κάθε σελίδα).
