@@ -332,6 +332,19 @@
       </div>
     </section>
 
+    <!-- REVIEWS -->
+    <section id="reviews" class="reviews">
+      <div class="container reviews-box">
+        <div class="reviews-stars" aria-hidden="true">⭐</div>
+        <h2>Η γνώμη σας μετράει</h2>
+        <p>Αν σας βοηθήσαμε, μια κριτική σας στο Google βοηθά κι άλλες οικογένειες να μας βρουν.</p>
+        <div class="reviews-actions">
+          <a id="review-write" class="btn" href="#" target="_blank" rel="noopener" hidden>✍️ Γράψτε κριτική</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF+%CE%95%CE%B9%CE%B4%CE%B9%CE%BA%CF%8E%CE%BD+%CE%98%CE%B5%CF%81%CE%B1%CF%80%CE%B5%CE%B9%CF%8E%CE%BD+%CE%9A%CE%B1%CE%BD%CE%B4%CF%81%CE%AE+%CE%A0%CE%B1%CF%80%CE%B1%CF%83%CF%84%CE%B1%CE%B8%CE%BF%CF%80%CE%BF%CF%8D%CE%BB%CE%BF%CF%85+8+%CE%A0%CF%8D%CF%81%CE%B3%CE%BF%CF%82" target="_blank" rel="noopener">Δείτε μας στους Χάρτες Google</a>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="container">
@@ -414,9 +427,21 @@
   <footer>
     <div class="container footer-content">
       <p><strong>Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα</strong><br>Παπασταθοπούλου 8, Πύργος Ηλείας · <a href="tel:+302621029798">26210 29798</a></p>
-      <p>© <span id="year">2025</span> Όλα τα δικαιώματα διατηρούνται.</p>
+      <p>© <span id="year">2025</span> Όλα τα δικαιώματα διατηρούνται.<br>
+        <a href="privacy.html">Πολιτική Απορρήτου</a>
+        <button type="button" id="cookie-settings" class="link-btn">· Ρυθμίσεις cookies</button>
+      </p>
     </div>
   </footer>
+
+  <!-- Cookie consent (εμφανίζεται μόνο αν έχει οριστεί gaId στο js/config.js) -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookies" hidden>
+    <p>Χρησιμοποιούμε cookies του Google Analytics για να μετράμε ανώνυμα την επισκεψιμότητα, μόνο αν το αποδεχτείτε. <a href="privacy.html">Περισσότερα</a></p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-small btn-outline" data-consent="reject">Απόρριψη</button>
+      <button type="button" class="btn btn-small" data-consent="accept">Αποδοχή</button>
+    </div>
+  </div>
 
   <a href="tel:+306971849025" class="call-fab" aria-label="Κλήση: 6971 849 025">☎️</a>
 
@@ -445,7 +470,9 @@
     </div>
   </div>
 
+  <script src="js/config.js"></script>
   <script src="js/main.js" defer></script>
+  <script src="js/consent.js" defer></script>
   <script src="js/accessibility.js" defer></script>
 </body>
 </html>

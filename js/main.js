@@ -23,6 +23,11 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // Google review button (link set in js/config.js)
+  var reviewUrl = (window.SITE_CONFIG || {}).googleReviewUrl;
+  var reviewBtn = document.getElementById('review-write');
+  if (reviewUrl && reviewBtn) { reviewBtn.href = reviewUrl; reviewBtn.hidden = false; }
+
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
