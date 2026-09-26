@@ -1,0 +1,18 @@
+# Ρυθμίσεις Netlify: στατική σελίδα, χωρίς build.
+[build]
+  publish = "."
+
+# Ασφάλεια για όλες τις σελίδες
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Εικόνες: αλλάζουν σπάνια, ο browser τις κρατά 30 ημέρες
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

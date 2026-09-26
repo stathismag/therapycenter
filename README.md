@@ -23,6 +23,13 @@
   Netlify → Project → Forms. Για ειδοποίηση με email: Project configuration → Notifications →
   Emails and webhooks → Form submission notifications → Add notification → Email notification.
 
+## SEO
+
+- Κύρια διεύθυνση: https://logotherapeia-pyrgos.gr/ (canonical σε κάθε σελίδα).
+- `sitemap.xml` και `robots.txt`. Αν προστεθεί νέα σελίδα, προσθέστε τη στο `sitemap.xml`.
+- `assets/og-image.jpg` (1200×630): η εικόνα που εμφανίζεται όταν μοιράζεται ο σύνδεσμος.
+- `netlify.toml`: headers ασφάλειας και cache εικόνων.
+
 ## Τοπική προβολή
 
 ```bash
