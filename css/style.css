@@ -48,7 +48,7 @@ p a:hover, .contact-info a:hover { text-decoration: underline; }
 .logo img { background: var(--white); border-radius: 50%; padding: 3px; width: 44px; height: 44px; }
 .logo-highlight { font-weight: 400; opacity: .92; }
 nav ul { display: flex; align-items: center; list-style: none; gap: 26px; }
-nav a { color: var(--white); font-weight: 600; padding: 6px 0; position: relative; }
+nav a { color: var(--white); font-weight: 600; padding: 6px 0; position: relative; white-space: nowrap; }
 nav a::after {
   content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
   background: var(--accent2); transition: width .3s;
@@ -280,7 +280,7 @@ footer a { color: var(--white); font-weight: 600; }
   .about-content, .contact-content { grid-template-columns: 1fr; }
   .highlights-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 860px) {
+@media (max-width: 1080px) {
   :root { --header-h: 64px; }
   .logo { font-size: 17px; }
   .mobile-menu-btn { display: flex; }
@@ -312,3 +312,25 @@ footer a { color: var(--white); font-weight: 600; }
 .legal code { background: var(--accent1); padding: 1px 6px; border-radius: 4px; }
 .thanks { text-align: center; min-height: 70vh; }
 .thanks .btn { color: var(--white); margin-top: 16px; }
+
+/* FAQ */
+.faq-list { max-width: 860px; margin: 0 auto; display: grid; gap: 14px; }
+.faq-item { background: var(--white); border: 1.5px solid #e6def2; border-radius: 16px; transition: box-shadow .3s, border-color .3s; }
+.faq-item[open] { border-color: var(--primary-color); box-shadow: var(--shadow); }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: 18px 56px 18px 22px; position: relative;
+  font-weight: 700; font-size: 17px; color: var(--text);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--accent1); color: var(--primary-color); font-size: 20px; font-weight: 700; transition: transform .3s;
+}
+.faq-item[open] summary::after { content: '−'; background: var(--primary-color); color: var(--white); }
+.faq-item summary:hover { color: var(--primary-color); }
+.faq-answer { padding: 0 22px 20px; color: var(--light-text); }
+.faq-answer p { margin-bottom: 10px; }
+.faq-answer ul { margin: 0 0 12px 20px; }
+.faq-answer li { margin-bottom: 4px; }
+@media (max-width: 1240px) and (min-width: 1081px) { nav ul { gap: 18px; } nav a { font-size: 15px; } }
