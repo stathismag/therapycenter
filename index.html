@@ -1,385 +1,149 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <!-- Inside the <head> tag -->
-<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα</title>
-  <style>
-    :root {
-      --primary-color: #6e48aa;
-      --secondary-color: #9d50bb;
-      --accent1: #f8f9fa;
-      --accent2: #ff8e3c;
-      --accent3: #4ecdc4;
-      --accent4: #ff6b6b;
-      --text: #2d3436;
-      --light-text: #636e72;
-      --white: #fff;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Poppins, sans-serif; }
-    body { color:var(--text); line-height:1.6; scroll-behavior:smooth; }
-    .container { width:90%; max-width:1200px; margin:0 auto; }
-    a { text-decoration:none; color:inherit; }
-    header {
-      position:fixed; top:0; width:100%; z-index:1000;
-      background: linear-gradient(135deg,var(--primary-color),var(--secondary-color));
-      padding:15px 0; box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    }
-    .header-content {
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .logo { font-size:24px; font-weight:700; color:var(--white); }
-    .logo span { font-weight:300; color:var(--accent1); margin-left:4px; }
-    nav ul { display:flex; list-style:none; }
-    nav li { margin-left:30px; }
-    nav a {
-      color:var(--white); font-weight:500; padding:5px 0;
-      position:relative; transition:all .3s;
-    }
-    nav a::after {
-      content:''; position:absolute; left:0; bottom:0;
-      width:0; height:2px; background:var(--accent2);
-      transition: width .3s;
-    }
-    nav a:hover::after { width:100%; }
-    nav a:hover { color:var(--accent2); }
-    .mobile-menu-btn {
-      display:none; font-size:24px; cursor:pointer; color:var(--white);
-    }
-    #home.hero {
-      height:100vh; display:flex; align-items:center; position:relative;
-      background: url('images/hero.jpg') center/cover no-repeat;
-      color:var(--white); overflow:hidden;
-    }
-    #home.hero::before {
-      content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(110,72,170,.8),rgba(157,80,187,.8));
-      z-index:1;
-    }
-    .hero-content {
-      position:relative; z-index:2; max-width:800px; margin:auto;
-      text-align:center; animation:fadeInUp 1s ease-out;
-    }
-    @keyframes fadeInUp {
-      from {opacity:0; transform:translateY(40px);} to{opacity:1;transform:translateY(0);}
-    }
-    .hero-content h1 { font-size:48px; margin-bottom:10px; font-weight:700;
-      text-shadow:2px 2px 8px rgba(0,0,0,0.2);
-    }
-    .hero-content .motto {
-      font-size: 1.4em;
-      color: var(--accent2);
-      margin-bottom: 25px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    .hero-content p { font-size:20px; margin-bottom:30px;
-      text-shadow:1px 1px 4px rgba(0,0,0,0.2);
-    }
-    .btn {
-      display:inline-block; padding:14px 30px; border-radius:50px;
-      background:var(--accent2); color:var(--white); font-weight:700;
-      text-transform:uppercase; letter-spacing:1px; position:relative;
-      overflow:hidden; transition:color 0.3s;
-      box-shadow:0 6px 15px rgba(255,142,60,.3);
-      z-index:1;
-    }
-    .btn::before {
-      content:'';
-      position:absolute; left:0; top:0; width:0%; height:100%;
-      background:var(--primary-color);
-      z-index:-1; transition:all 0.5s cubic-bezier(.4,2,.3,1);
-    }
-    .btn:hover::before { width:100%; }
-    .btn:hover {
-      color:var(--white);
-      transform:translateY(-5px);
-      box-shadow:0 10px 20px rgba(110,72,170,.3);
-    }
-    .btn:focus { outline: 2px solid var(--primary-color); }
+  <title>Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα | Λογοθεραπεία Πύργος Ηλείας</title>
+  <meta name="description" content="Κέντρο Ειδικών Θεραπειών στον Πύργο Ηλείας από το 2010: λογοθεραπεία, εργοθεραπεία, ειδική διαπαιδαγώγηση, θεραπεία σίτισης, ψυχοπαιδαγωγική παρέμβαση, παιγνιοθεραπεία και συμβουλευτική γονέων.">
+  <meta name="theme-color" content="#6e48aa">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:title" content="Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα">
+  <meta property="og:description" content="Λογοθεραπεία, εργοθεραπεία και ειδική αγωγή στον Πύργο Ηλείας. Γιατί… κάθε λέξη μετράει!">
+  <meta property="og:image" content="assets/hero.webp">
 
-    .section-title { text-align:center; margin-bottom:60px; position:relative; }
-    .section-title h2 {
-      display:inline-block; font-size:36px; font-weight:700; color:var(--text);
-      position:relative; z-index:1;
-    }
-    .section-title h2::before {
-      content:''; position:absolute; top:-10px; left:-15px;
-      width:40px;height:40px;border-radius:50%;background:#c8a4f4;opacity:.5;
-    }
-    .section-title h2::after {
-      content:''; position:absolute; bottom:-10px; left:50%;
-      transform:translateX(-50%); width:100px; height:4px;
-      background:linear-gradient(to right,var(--primary-color),var(--secondary-color));
-      border-radius:2px;
-    }
-    #about .about-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 40px;
-    }
-    .about-col {
-      flex: 1 1 0;
-      min-width: 300px;
-    }
-    .about-text p { margin-bottom:15px; color:var(--light-text); line-height:1.8; }
-    .social-links {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--accent1);
-      color: var(--primary-color);
-      font-size: 22px;
-      transition: background 0.3s, color 0.3s;
-    }
-    .social-links a:hover {
-      background: var(--primary-color);
-      color: var(--white);
-    }
-    .space-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .space-gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(110,72,170,0.07);
-      object-fit: cover;
-      height: 130px;
-      background: #eee;
-    }
-    .gallery-caption {
-      text-align: center;
-      font-size: 15px;
-      color: var(--primary-color);
-      margin-bottom: 8px;
-      margin-top: 6px;
-    }
-    @media (max-width: 900px) {
-      #about .about-content { flex-direction: column; }
-      .space-gallery { grid-template-columns: 1fr; }
-    }
-    /* SERVICES */
-    #services.services {
-      padding:100px 0; background:var(--accent1); position:relative; overflow:hidden;
-    }
-    .services-grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;
-    }
-    .service-card {
-      background:var(--white); border-radius:20px; padding:40px 30px;
-      text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.05);
-      position:relative; overflow:hidden; transition:all .5s;
-      border-bottom:5px solid transparent;
-    }
-    .service-card:nth-child(1){border-bottom-color:var(--accent2);}
-    .service-card:nth-child(2){border-bottom-color:var(--accent3);}
-    .service-card:nth-child(3){border-bottom-color:var(--accent4);}
-    .service-icon {
-      font-size:40px; width:90px;height:90px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;margin:0 auto 30px;
-    }
-    .service-card:nth-child(1) .service-icon{background:var(--accent2);color:var(--white);}
-    .service-card:nth-child(2) .service-icon{background:var(--accent3);color:var(--white);}
-    .service-card:nth-child(3) .service-icon{background:var(--accent4);color:var(--white);}
-    .service-card h3 { color:var(--primary-color); font-size:22px; margin-bottom:15px; }
-    .service-card p { color:var(--light-text); font-size:15px; line-height:1.7; }
-    .service-card ul { list-style:none; text-align:left; margin-top:20px; color:var(--light-text); }
-    .service-card ul li {
-      position:relative; padding-left:12px; margin-bottom:8px;
-    }
-    .service-card ul li::before {
-      content:'•'; position:absolute; left:0; color:var(--primary-color);
-    }
-    /* TEAM */
-    #team.team {
-      padding:120px 0; background:var(--white);
-    }
-    .team-grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px;
-    }
-    .team-member {
-      background:var(--white); border-radius:20px; overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,.05); transition:all .5s; text-align:center;
-    }
-    .member-image { overflow:hidden; }
-    .member-image img {
-      width:100%; height:300px; object-fit:cover; transition:transform .5s;
-    }
-    .team-member:hover .member-image img { transform:scale(1.1); }
-    .member-info { padding:25px 20px; position:relative; }
-    .member-info h3 { color:var(--primary-color); font-size:20px; margin-bottom:5px; }
-    .member-info p { color:var(--light-text); font-size:14px; }
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="preload" as="image" href="assets/hero.webp">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/accessibility.css">
 
-    
-    /* CONTACT */
-    #contact.contact {
-      padding:100px 0; background:var(--white);
-    }
-    .contact-content { display:flex; flex-wrap:wrap; gap:40px; }
-    .contact-info { flex:1; min-width:300px; }
-    .contact-info-item {
-      display:flex; align-items:flex-start; margin-bottom:20px;
-    }
-    .contact-icon {
-      width:40px;height:40px;border-radius:50%;
-      background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
-      display:flex;align-items:center;justify-content:center;color:var(--white);
-      font-size:18px; margin-right:15px;
-    }
-    .contact-form { flex:1; min-width:300px; }
-    .contact-form h3 { margin-bottom:20px; }
-    .form-group { margin-bottom:20px; }
-    .form-control {
-      width:100%; padding:12px; border:1px solid #ddd; border-radius:5px;
-      font-size:16px;
-    }
-    .submit-btn {
-      background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
-      color:var(--white); border:none; padding:12px 30px;
-      border-radius:5px; font-weight:700; cursor:pointer; transition:all .3s;
-    }
-    .submit-btn:hover { transform:translateY(-3px); box-shadow:0 5px 15px rgba(0,0,0,.1); }
-    /* FOOTER */
-    footer {
-      background: linear-gradient(135deg,var(--primary-color),var(--secondary-color));
-      color:var(--white); padding:50px 0 20px;
-      text-align: center;
-    }
-    @media(max-width:768px){
-      .mobile-menu-btn { display:block; }
-      nav ul { display:none; flex-direction:column; position:absolute; top:60px; left:0;
-        width:100%; background:var(--primary-color); padding:20px;
-      }
-      nav ul.active { display:flex; }
-      nav li { margin:10px 0; }
-      .about-content, .contact-content { flex-direction:column; }
-      .services-grid, .team-grid { grid-template-columns:1fr; }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα",
+    "description": "Λογοθεραπεία, εργοθεραπεία, ειδική διαπαιδαγώγηση και ψυχοπαιδαγωγική παρέμβαση στον Πύργο Ηλείας.",
+    "foundingDate": "2010",
+    "telephone": ["+302621029798", "+306971849025"],
+    "email": "konnakandri@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Παπασταθοπούλου 8",
+      "addressLocality": "Πύργος",
+      "addressRegion": "Ηλεία",
+      "postalCode": "27100",
+      "addressCountry": "GR"
+    },
+    "sameAs": [
+      "https://www.facebook.com/logotherapeia.pyrgos",
+      "https://www.instagram.com/logotherapeiapyrgos/"
+    ]
+  }
+  </script>
 </head>
 <body>
-  
-	  <!-- HEADER -->
-<header id="header">
-  <div class="container header-content">
-    <a href="#home" class="logo" style="display: flex; align-items: center; text-decoration: none;">
-      <img src="assets/logo.png" alt="Κέντρο Ειδικών Θεραπειών Logo" style="height:40px; margin-right: 12px;">
-      <span class="logo-text">
-        Κέντρο<span class="logo-highlight">Ειδικών Θεραπειών</span>
-      </span>
-    </a>
-    <nav>
-      <ul id="nav-list">
-        <li><a href="#home">Αρχική</a></li>
-        <li><a href="#about">Σχετικά</a></li>
-        <li><a href="#services">Υπηρεσίες</a></li>
-        <li><a href="#team">Ομάδα</a></li>
-        <li><a href="#contact">Επικοινωνία</a></li>
-      </ul>
-    </nav>
-    <div class="mobile-menu-btn" id="mobile-btn">☰</div>
-  </div>
-</header>
+  <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
 
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-content container">
-      <h1>Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα</h1>
-      <div class="motto">Γιατί…<br>Κάθε Λέξη Μετράει❗</div>
-      <p>Πρόληψη – Διάγνωση – Θεραπεία – Αποκατάσταση</p>
-      <a href="#contact" class="btn">Κλείστε Ραντεβού</a>
+  <!-- HEADER -->
+  <header id="header" class="site-header">
+    <div class="container header-content">
+      <a href="#home" class="logo">
+        <img src="assets/logo-160.png" alt="" width="44" height="44">
+        <span class="logo-text">Κέντρο <span class="logo-highlight">Ειδικών Θεραπειών</span></span>
+      </a>
+      <button class="mobile-menu-btn" id="mobile-btn" aria-controls="nav-list" aria-expanded="false" aria-label="Μενού">
+        <span></span><span></span><span></span>
+      </button>
+      <nav aria-label="Κύριο μενού">
+        <ul id="nav-list">
+          <li><a href="#home">Αρχική</a></li>
+          <li><a href="#about">Σχετικά</a></li>
+          <li><a href="#services">Υπηρεσίες</a></li>
+          <li><a href="#space">Ο χώρος μας</a></li>
+          <li><a href="#team">Ομάδα</a></li>
+          <li><a href="#contact" class="nav-cta">Επικοινωνία</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-  <div class="container">
-    <div class="section-title">
-      <h2>Σχετικά με εμάς</h2>
-    </div>
-    <div class="about-content">
-      <div class="about-col about-text">
-        <h4 style="color: var(--primary-color); margin-top:32px;">Προφίλ Κέντρου</h4>
-        <p>
-          Το Κέντρο μας λειτουργεί από το 2010 στον Πύργο Ηλείας με σκοπό την έγκαιρη πρόληψη, διάγνωση και αποκατάσταση διαταραχών λόγου, επικοινωνίας, μάθησης και συναισθηματικής ανάπτυξης.
-        </p>
-        <p>
-          Η ομάδα μας απαρτίζεται από έμπειρους λογοθεραπευτές, εργοθεραπευτή, παιδαγωγό και ψυχολόγο με πάνω από 15 χρόνια εμπειρίας. Παρέχουμε εξατομικευμένα προγράμματα υποστήριξης σε παιδιά και ενήλικες, σε ένα ζεστό και φιλικό περιβάλλον.
-        </p>
-        <h4 style="color: var(--primary-color); margin-top:32px;">Επιστημονικά Υπεύθυνη</h4>
-           <p>
-            Η υπεύθυνη του κέντρου, Κωνσταντίνα Κανδρή, είναι Λογοθεραπεύτρια - Ειδική Παιδαγωγός M.Ed. με εξειδίκευση στον Αυτισμό και τη Δυσλεξία. Είναι πτυχιούχος του τμήματος Λογοθεραπείας Πατρών με μεταπτυχιακές σπουδές (Master) στην Ειδική Αγωγή και Εκπαίδευση στο Πανεπιστήμιο Λευκωσίας σε συνεργασία με το Πανεπιστήμιο Πατρών.
-          </p>
-          <p>
-            Είναι πιστοποιημένη Σύμβουλος χορήγησης Αθηνά Τεστ (Διάγνωση Δυσκολιών Μάθησης), και πιστοποιημένη στην ανίχνευση και πρώιμη ανίχνευση αυτισμού με τη σταθμισμένη δοκιμασία “παις” και τα διαγνωστικά εργαλεία ADOS και ADI-R από το Πανεπιστήμιο Μακεδονίας. Επίσης, έχει λάβει πιστοποίηση στη μέθοδο S.C.E.R.T.S. (ενίσχυση της κοινωνικής επικοινωνίας, τη συναισθηματική ρύθμιση και την υποστήριξη της ικανότητας συνδιαλλαγής) για άτομα στο φάσμα του αυτισμού.
-          </p>
-          <p>
-            Έχει εκπαιδευτεί και πιστοποιηθεί στη μέθοδο PECS επίπεδο 1 για άτομα με διαταραχές στο φάσμα του αυτισμού ή άλλες διαταραχές επικοινωνίας χωρίς λειτουργικό λόγο και στη μέθοδο ABA (Εφαρμοσμένη Ανάλυση Συμπεριφοράς) για μαθητές με αυτισμό και άλλες σοβαρές αναπτυξιακές διαταραχές. Ακόμα, είναι εκπαιδευμένη στη δομημένη διδασκαλία TEACCH (Θεραπεία και Εκπαίδευση Παιδιών με Αυτισμό και Διαταραχές Επικοινωνίας) με πιστοποίηση από το Πανεπιστήμιο της Βόρειας Καρολίνας Η.Π.Α. και στη μέθοδο Greenspan Floortime Approach από το Greenspan Floortime Center Η.Π.Α.
-          </p>
-          <p>
-            Επιπλέον, έχει μετεκπαιδευτεί σε πλήθος επιμορφωτικών προγραμμάτων και πρακτικών σεμιναρίων όπως Αισθητηριακή Ολοκλήρωση & Αυτισμός, Παιγνιοθεραπεία για Παιδιά & Εφήβους, Αυτορρύθμιση στο σχολείο για παιδιά με Αυτισμό, Διάσπαση Προσοχής ή Αισθητηριακές και Συναισθηματικές Διαταραχές κ.α.
-          </p>
-         
-          <p>👉 Ακολουθήστε μας!</p>
-<div class="social-links">
-  <a href="https://www.facebook.com/logotherapeia.pyrgos" target="_blank" aria-label="Facebook">
-    <svg fill="#1877F2" viewBox="0 0 24 24"><path d="M21.8 0H2.2C1 0 0 .95 0 2.1v19.8C0 23.05 1 24 2.2 24h10.7v-9.3H9.7V11.1h3.2V8.4c0-3.1 1.9-4.8 4.7-4.8 1.3 0 2.5.1 2.8.2v3.3h-1.9c-1.5 0-1.9.7-1.9 1.9v2.5h3.8l-.5 3.6h-3.3V24h6.5c1.2 0 2.2-.95 2.2-2.1V2.1C24 .95 22.95 0 21.8 0"></path></svg>
-  </a>
-  <a href="https://www.instagram.com/logotherapeiapyrgos/" target="_blank" aria-label="Instagram">
-    <svg fill="#E4405F" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58 0 4.85.07 1.17.07 1.95.24 2.41.41.5.2.86.43 1.24.81.38.38.61.74.81 1.23.18.46.35 1.25.42 2.43.07 1.28.07 1.65.07 4.85s0 3.57-.07 4.85c-.07 1.17-.24 1.95-.42 2.41-.2.5-.43.86-.81 1.24-.38.38-.74.61-1.24.81-.46.18-1.24.35-2.41.41-1.28.08-1.65.08-4.85.08s-3.57 0-4.85-.08c-1.17-.06-1.95-.23-2.41-.41-.5-.2-.86-.43-1.24-.81-.38-.38-.61-.74-.81-1.24-.18-.46-.35-1.24-.41-2.41C2.2 15.57 2.2 15.2 2.2 12s0-3.57.07-4.85c.06-1.17.23-1.95.41-2.41.2-.5.43-.86.81-1.24.38-.38.74-.61 1.24-.81.46-.18 1.24-.34 2.41-.41C8.43 2.2 8.8 2.2 12 2.2m0-2.2C8.74 0 8.33 0 7.05.07c-1.33.07-2.23.29-3.03.6-.86.34-1.6.79-2.36 1.54C.29 3.58-.16 4.32.18 5.18c.31.8.53 1.7.6 3.03C.07 8.33 0 8.74 0 12c0 3.26.07 3.67.18 4.95.07 1.33.29 2.23.6 3.03.34.86.79 1.6 1.54 2.36.76.75 1.5 1.21 2.36 1.54.8.32 1.7.54 3.03.61C8.33 23.93 8.74 24 12 24c3.26 0 3.67-.07 4.95-.18 1.33-.07 2.23-.29 3.03-.61.86-.33 1.6-.79 2.36-1.54.75-.76 1.21-1.5 1.54-2.36.31-.8.53-1.7.61-3.03.11-1.28.18-1.69.18-4.95s-.07-3.67-.18-4.95c-.07-1.33-.3-2.23-.61-3.03-.33-.86-.79-1.6-1.54-2.36-.76-.75-1.5-1.2-2.36-1.54-.8-.31-1.7-.53-3.03-.6C15.67.07 15.26 0 12 0z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.8" cy="5.2" r="1.1"/></svg>
-  </a>
-  <a href="https://www.linkedin.com/in/kandri/" target="_blank" aria-label="LinkedIn">
-    <svg fill="#0A66C2" viewBox="0 0 24 24"><path d="M19.8 3A2.2 2.2 0 0 1 22 5.2v13.6A2.2 2.2 0 0 1 19.8 21H4.2A2.2 2.2 0 0 1 2 18.8V5.2A2.2 2.2 0 0 1 4.2 3h15.6zm-6.985 14.345v-4.417c0-1.022-.376-1.721-1.317-1.721-.719 0-1.148.485-1.337.954-.069.168-.087.404-.087.638v4.546h-2.403V9.74h2.403v1.072c.27-.417.76-1.012 1.995-1.012 1.456 0 2.554.946 2.554 2.982v4.563h-2.407zm-7.107-8.14a1.394 1.394 0 1 1 0-2.786 1.394 1.394 0 0 1 0 2.786zm1.202 8.14V9.74h2.403v7.606H6.91zm14.496-14.346H2.594A2.586 2.586 0 0 0 0 5.517v13.019A2.585 2.585 0 0 0 2.594 21.12h18.815A2.586 2.586 0 0 0 24 18.537V5.517a2.585 2.585 0 0 0-2.594-2.514z"/></svg>
-  </a>
-</div>
-
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-content container">
+        <p class="hero-kicker">Πύργος Ηλείας · από το 2010</p>
+        <h1>Κέντρο Ειδικών Θεραπειών<br><span>Κανδρή Χρ. Κωνσταντίνα</span></h1>
+        <p class="motto">Γιατί… Κάθε Λέξη Μετράει❗</p>
+        <p class="hero-pillars">Πρόληψη – Διάγνωση – Θεραπεία – Αποκατάσταση</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Κλείστε Ραντεβού</a>
+          <a href="tel:2621029798" class="btn btn-ghost">☎️ 26210 29798</a>
         </div>
-<div class="about-col">
-  <div class="gallery-caption"><strong>Ο χώρος μας</strong></div>
-  <div class="space-gallery">
-    <img src="assets/unnamed (1).webp" alt="">
-    <img src="assets/unnamed (2).webp" alt="">
-    <img src="assets/unnamed (3).webp" alt="">
-    <img src="assets/unnamed (4).webp" alt="">
-    <img src="assets/unnamed (5).webp" alt="">
-    <img src="assets/unnamed (7).webp" alt="">
-    <img src="assets/unnamed (9).webp" alt="">
-    <img src="assets/unnamed (11).webp" alt="">
-    <img src="assets/unnamed (13).webp" alt="">
-    <img src="assets/unnamed (14).webp" alt="">
-    <img src="assets/unnamed (15).webp" alt="">
-    <img src="assets/unnamed (16).webp" alt="">
-    <img src="assets/unnamed (17).webp" alt="">
-    <img src="assets/unnamed (18).webp" alt="">
-  </div>
-</div>
-       </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title"><h2>Οι Υπηρεσίες μας</h2></div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🗣️</div>
+    <!-- HIGHLIGHTS -->
+    <section class="highlights" aria-label="Με μια ματιά">
+      <div class="container highlights-grid">
+        <div><strong>15+</strong><span>χρόνια εμπειρίας</span></div>
+        <div><strong>12</strong><span>θεραπευτικές υπηρεσίες</span></div>
+        <div><strong>5</strong><span>εξειδικευμένοι θεραπευτές</span></div>
+        <div><strong>Παιδιά &amp; ενήλικες</strong><span>εξατομικευμένα προγράμματα</span></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>Σχετικά με εμάς</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-col about-text">
+            <h3>Προφίλ Κέντρου</h3>
+            <p>
+              Το Κέντρο μας λειτουργεί από το 2010 στον Πύργο Ηλείας με σκοπό την έγκαιρη πρόληψη, διάγνωση και αποκατάσταση διαταραχών λόγου, επικοινωνίας, μάθησης και συναισθηματικής ανάπτυξης.
+            </p>
+            <p>
+              Η ομάδα μας απαρτίζεται από έμπειρους λογοθεραπευτές, εργοθεραπευτή, παιδαγωγό και ψυχολόγο με πάνω από 15 χρόνια εμπειρίας. Παρέχουμε εξατομικευμένα προγράμματα υποστήριξης σε παιδιά και ενήλικες, σε ένα ζεστό και φιλικό περιβάλλον.
+            </p>
+            <figure class="about-photo">
+              <img src="assets/gallery/11-thumb.webp" alt="Το γραφείο της επιστημονικά υπεύθυνης" loading="lazy" width="480" height="480">
+            </figure>
+          </div>
+          <div class="about-col about-text">
+            <h3>Επιστημονικά Υπεύθυνη</h3>
+            <p>
+          Η υπεύθυνη του κέντρου, Κωνσταντίνα Κανδρή, είναι Λογοθεραπεύτρια - Ειδική Παιδαγωγός M.Ed. με εξειδίκευση στον Αυτισμό και τη Δυσλεξία. Είναι πτυχιούχος του τμήματος Λογοθεραπείας Πατρών με μεταπτυχιακές σπουδές (Master) στην Ειδική Αγωγή και Εκπαίδευση στο Πανεπιστήμιο Λευκωσίας σε συνεργασία με το Πανεπιστήμιο Πατρών.
+          </p>
+          <p>
+          Είναι πιστοποιημένη Σύμβουλος χορήγησης Αθηνά Τεστ (Διάγνωση Δυσκολιών Μάθησης), και πιστοποιημένη στην ανίχνευση και πρώιμη ανίχνευση αυτισμού με τη σταθμισμένη δοκιμασία “παις” και τα διαγνωστικά εργαλεία ADOS και ADI-R από το Πανεπιστήμιο Μακεδονίας. Επίσης, έχει λάβει πιστοποίηση στη μέθοδο S.C.E.R.T.S. (ενίσχυση της κοινωνικής επικοινωνίας, τη συναισθηματική ρύθμιση και την υποστήριξη της ικανότητας συνδιαλλαγής) για άτομα στο φάσμα του αυτισμού.
+          </p>
+          <p>
+          Έχει εκπαιδευτεί και πιστοποιηθεί στη μέθοδο PECS επίπεδο 1 για άτομα με διαταραχές στο φάσμα του αυτισμού ή άλλες διαταραχές επικοινωνίας χωρίς λειτουργικό λόγο και στη μέθοδο ABA (Εφαρμοσμένη Ανάλυση Συμπεριφοράς) για μαθητές με αυτισμό και άλλες σοβαρές αναπτυξιακές διαταραχές. Ακόμα, είναι εκπαιδευμένη στη δομημένη διδασκαλία TEACCH (Θεραπεία και Εκπαίδευση Παιδιών με Αυτισμό και Διαταραχές Επικοινωνίας) με πιστοποίηση από το Πανεπιστήμιο της Βόρειας Καρολίνας Η.Π.Α. και στη μέθοδο Greenspan Floortime Approach από το Greenspan Floortime Center Η.Π.Α.
+          </p>
+          <p>
+          Επιπλέον, έχει μετεκπαιδευτεί σε πλήθος επιμορφωτικών προγραμμάτων και πρακτικών σεμιναρίων όπως Αισθητηριακή Ολοκλήρωση & Αυτισμός, Παιγνιοθεραπεία για Παιδιά & Εφήβους, Αυτορρύθμιση στο σχολείο για παιδιά με Αυτισμό, Διάσπαση Προσοχής ή Αισθητηριακές και Συναισθηματικές Διαταραχές κ.α.
+          </p>
+            <ul class="chips" aria-label="Πιστοποιήσεις">
+              <li>ADOS</li><li>ADI-R</li><li>Αθηνά Τεστ</li><li>S.C.E.R.T.S.</li><li>PECS</li><li>ABA</li><li>TEACCH</li><li>Greenspan Floortime</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title"><h2>Οι Υπηρεσίες μας</h2></div>
+        <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🗣️</div>
           <h3>Λογοθεραπεία</h3>
           <p>Αξιολόγηση & θεραπεία διαταραχών λόγου, ομιλίας, επικοινωνίας και φωνής.</p>
           <ul>
@@ -388,9 +152,9 @@
             <li>Τραυλισμός</li>
             <li>Φωνητικές παρεμβάσεις</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🧩</div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🧩</div>
           <h3>Εργοθεραπεία</h3>
           <p>Ανάπτυξη δεξιοτήτων αυτοεξυπηρέτησης, κινητικότητας και αισθητηριακής ολοκλήρωσης.</p>
           <ul>
@@ -399,31 +163,31 @@
             <li>Οπτικο-κινητικός συντονισμός</li>
             <li>Δεξιότητες καθημερινότητας</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📚</div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">📚</div>
           <h3>Ειδική Διαπαιδαγώγηση</h3>
           <p>Εξατομικευμένα προγράμματα για μαθησιακές δυσκολίες και ΔΕΠ-Υ.</p>
           <ul>
             <li>Αξιολόγηση μαθησιακών δυσκολιών</li>
             <li>Υποστήριξη σε ΔΕΠ-Υ</li>
             <li>Ανάγνωση & γραφή</li>
-            <li>Προσαρμοσμένα μελέτης</li>
+            <li>Προσαρμοσμένες τεχνικές μελέτης</li>
           </ul>
-          </div>
-<div class="service-card">
-  <div class="service-icon">🍽️</div>
-  <h3>Θεραπεία σίτισης</h3>
-  <p>Εξατομικευμένες παρεμβάσεις για δυσκολίες σίτισης και κατάποσης.</p>
-  <ul>
-    <li>Αξιολόγηση διαταραχών σίτισης</li>
-    <li>Εκπαίδευση δεξιοτήτων μάσησης και κατάποσης</li>
-    <li>Υποστήριξη και συμβουλές διατροφής</li>
-    <li>Συνεργασία με γονείς και ειδικούς</li>
-  </ul>
-</div>
-        <div class="service-card">
-          <div class="service-icon">🧠</div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🍽️</div>
+          <h3>Θεραπεία σίτισης</h3>
+          <p>Εξατομικευμένες παρεμβάσεις για δυσκολίες σίτισης και κατάποσης.</p>
+          <ul>
+            <li>Αξιολόγηση διαταραχών σίτισης</li>
+            <li>Εκπαίδευση δεξιοτήτων μάσησης και κατάποσης</li>
+            <li>Υποστήριξη και συμβουλές διατροφής</li>
+            <li>Συνεργασία με γονείς και ειδικούς</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🧠</div>
           <h3>Ψυχοπαιδαγωγική Παρέμβαση</h3>
           <p>Πρόγραμμα προαγωγής της ψυχικής υγείας παιδιών, εστιάζει στη βελτίωση της κοινωνικής συμπεριφοράς, της επικοινωνίας, της συναισθηματικής ωρίμανσης και των γνωστικών δεξιοτήτων.</p>
           <ul>
@@ -432,9 +196,9 @@
             <li>Ανάπτυξη δεξιοτήτων προσοχής & μνήμης</li>
             <li>Συμβολικό παιχνίδι & αυτονομία</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👪</div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">👪</div>
           <h3>Συμβουλευτική Γονέων</h3>
           <p>Υποστηρικτικές συνεδρίες για γονείς, με στόχο την ενίσχυση της επικοινωνίας, τη διαχείριση συμπεριφοράς και τη συναισθηματική στήριξη του παιδιού.</p>
           <ul>
@@ -443,272 +207,249 @@
             <li>Διαχείριση άγχους & φοβιών του παιδιού</li>
             <li>Ενίσχυση σχολικής εμπλοκής & μάθησης</li>
           </ul>
-        </div>
-        <div class="service-card">
-  <div class="service-icon">💚</div>
-  <h3>Ψυχοσυναισθηματική Υποστήριξη</h3>
-  <p>Παρεμβάσεις για τη διαχείριση συναισθημάτων, άγχους και ψυχολογικής ενδυνάμωσης παιδιών και εφήβων.</p>
-  <ul>
-    <li>Ανάπτυξη αυτοεκτίμησης</li>
-    <li>Διαχείριση άγχους & φοβιών</li>
-    <li>Συμβουλευτική υποστήριξη</li>
-    <li>Ενίσχυση συναισθηματικής νοημοσύνης</li>
-  </ul>
-</div>
-<div class="service-card">
-  <div class="service-icon">🧸</div>
-  <h3>Παιγνιοθεραπεία</h3>
-  <p>Θεραπευτική αξιοποίηση του παιχνιδιού για ενίσχυση συναισθηματικής και κοινωνικής εξέλιξης.</p>
-  <ul>
-    <li>Εξωτερίκευση συναισθημάτων μέσω παιχνιδιού</li>
-    <li>Ανάπτυξη κοινωνικών δεξιοτήτων</li>
-    <li>Χαλάρωση & έκφραση</li>
-    <li>Διαχείριση συμπεριφοράς</li>
-  </ul>
-</div>
-<div class="service-card">
-  <div class="service-icon">🌈</div>
-  <h3>Αισθητηριακή Ολοκλήρωση</h3>
-  <p>Παρεμβάσεις για τη βελτίωση της αισθητηριακής επεξεργασίας και της καθημερινής λειτουργικότητας.</p>
-  <ul>
-    <li>Αξιολόγηση αισθητηριακών δυσκολιών</li>
-    <li>Δραστηριότητες αισθητηριακής ολοκλήρωσης</li>
-    <li>Υποστήριξη σε σχολικό & οικιακό περιβάλλον</li>
-    <li>Συνεργασία με ειδικούς</li>
-  </ul>
-</div>
-<div class="service-card">
-  <div class="service-icon">🎓</div>
-  <h3>Έλεγχος Σχολικής Ετοιμότητας</h3>
-  <p>Αξιολόγηση δεξιοτήτων απαραίτητων για την ομαλή μετάβαση στο σχολείο.</p>
-  <ul>
-    <li>Γνωστική και γλωσσική αξιολόγηση</li>
-    <li>Έλεγχος κινητικών δεξιοτήτων</li>
-    <li>Δεξιότητες αυτοεξυπηρέτησης</li>
-    <li>Συμβουλές και υποστήριξη γονέων</li>
-  </ul>
-</div>
-<div class="service-card">
-  <div class="service-icon">✏️</div>
-  <h3>Σχολική Προετοιμασία</h3>
-  <p>Εξατομικευμένο πρόγραμμα προετοιμασίας για παιδιά προσχολικής ηλικίας.</p>
-  <ul>
-    <li>Εξάσκηση γραφής & ανάγνωσης</li>
-    <li>Ανάπτυξη δεξιοτήτων συγκέντρωσης</li>
-    <li>Οργάνωση & αυτονομία μαθητή</li>
-    <li>Εξοικείωση με σχολικές ρουτίνες</li>
-  </ul>
-</div>
-<div class="service-card">
-  <div class="service-icon">🌱</div>
-  <h3>Πρώιμη Παρέμβαση</h3>
-  <p>Έγκαιρη ενίσχυση της ανάπτυξης σε παιδιά με ανιχνευόμενες ή πιθανολογούμενες δυσκολίες.</p>
-  <ul>
-    <li>Αξιολόγηση αναπτυξιακών σταδίων</li>
-    <li>Θεραπευτικά προγράμματα ενίσχυσης</li>
-    <li>Συνεργασία με οικογένεια & ειδικούς</li>
-    <li>Υποστήριξη στην ομαλή ένταξη</li>
-  </ul>
-</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section id="team" class="team">
-    <div class="container">
-      <div class="section-title"><h2>Η Ομάδα μας</h2></div>
-      <div class="team-grid">
-        <div class="team-member">
-          <div class="member-image">
-            <img src="images/team1.jpg" alt="Κανδρή Κωνσταντίνα">
-          </div>
-          <div class="member-info">
-            <h3>Κανδρή Κωνσταντίνα</h3>
-            <p>Λογοθεραπεύτρια - Ειδική Παιδαγωγός M.Ed.</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="member-image">
-            <img src="images/team2.jpg" alt="Τσούλη Κατερίνα">
-          </div>
-          <div class="member-info">
-            <h3>Τσούλη Κατερίνα</h3>
-            <p>Λογοθεραπεύτρια</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="member-image">
-            <img src="images/team3.jpg" alt="Αλεξανδρή Βιβή">
-          </div>
-          <div class="member-info">
-            <h3>Αλεξανδρή Βιβή</h3>
-            <p>Λογοθεραπεύτρια</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="member-image">
-            <img src="images/team4.jpg" alt="Πέππα Ιωάννα">
-          </div>
-          <div class="member-info">
-            <h3>Πέππα Ιωάννα</h3>
-            <p>Εργοθεραπεύτρια S.I. - Εκπαιδεύτρια Θεραπευτικής Ιππασίας</p>
-        </div>
-        </div>
-             <div class="team-member">
-          <div class="member-image">
-            <img src="images/team5.jpg" alt="Σωτηροπούλου Παναγιώτα">
-          </div>
-          <div class="member-info">
-            <h3>Σωτηροπούλου Παναγιώτα</h3>
-            <p>Ψυχολόγος</p>
-          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">💚</div>
+          <h3>Ψυχοσυναισθηματική Υποστήριξη</h3>
+          <p>Παρεμβάσεις για τη διαχείριση συναισθημάτων, άγχους και ψυχολογικής ενδυνάμωσης παιδιών και εφήβων.</p>
+          <ul>
+            <li>Ανάπτυξη αυτοεκτίμησης</li>
+            <li>Διαχείριση άγχους & φοβιών</li>
+            <li>Συμβουλευτική υποστήριξη</li>
+            <li>Ενίσχυση συναισθηματικής νοημοσύνης</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🧸</div>
+          <h3>Παιγνιοθεραπεία</h3>
+          <p>Θεραπευτική αξιοποίηση του παιχνιδιού για ενίσχυση συναισθηματικής και κοινωνικής εξέλιξης.</p>
+          <ul>
+            <li>Εξωτερίκευση συναισθημάτων μέσω παιχνιδιού</li>
+            <li>Ανάπτυξη κοινωνικών δεξιοτήτων</li>
+            <li>Χαλάρωση & έκφραση</li>
+            <li>Διαχείριση συμπεριφοράς</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🌈</div>
+          <h3>Αισθητηριακή Ολοκλήρωση</h3>
+          <p>Παρεμβάσεις για τη βελτίωση της αισθητηριακής επεξεργασίας και της καθημερινής λειτουργικότητας.</p>
+          <ul>
+            <li>Αξιολόγηση αισθητηριακών δυσκολιών</li>
+            <li>Δραστηριότητες αισθητηριακής ολοκλήρωσης</li>
+            <li>Υποστήριξη σε σχολικό & οικιακό περιβάλλον</li>
+            <li>Συνεργασία με ειδικούς</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🎓</div>
+          <h3>Έλεγχος Σχολικής Ετοιμότητας</h3>
+          <p>Αξιολόγηση δεξιοτήτων απαραίτητων για την ομαλή μετάβαση στο σχολείο.</p>
+          <ul>
+            <li>Γνωστική και γλωσσική αξιολόγηση</li>
+            <li>Έλεγχος κινητικών δεξιοτήτων</li>
+            <li>Δεξιότητες αυτοεξυπηρέτησης</li>
+            <li>Συμβουλές και υποστήριξη γονέων</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">✏️</div>
+          <h3>Σχολική Προετοιμασία</h3>
+          <p>Εξατομικευμένο πρόγραμμα προετοιμασίας για παιδιά προσχολικής ηλικίας.</p>
+          <ul>
+            <li>Εξάσκηση γραφής & ανάγνωσης</li>
+            <li>Ανάπτυξη δεξιοτήτων συγκέντρωσης</li>
+            <li>Οργάνωση & αυτονομία μαθητή</li>
+            <li>Εξοικείωση με σχολικές ρουτίνες</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🌱</div>
+          <h3>Πρώιμη Παρέμβαση</h3>
+          <p>Έγκαιρη ενίσχυση της ανάπτυξης σε παιδιά με ανιχνευόμενες ή πιθανολογούμενες δυσκολίες.</p>
+          <ul>
+            <li>Αξιολόγηση αναπτυξιακών σταδίων</li>
+            <li>Θεραπευτικά προγράμματα ενίσχυσης</li>
+            <li>Συνεργασία με οικογένεια & ειδικούς</li>
+            <li>Υποστήριξη στην ομαλή ένταξη</li>
+          </ul>
+        </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <div class="section-title"><h2>Επικοινωνήστε μαζί μας</h2></div>
-    <div class="contact-content">
-      <div class="contact-info">
-        <h3>Στοιχεία Επικοινωνίας</h3>
-        <div class="contact-info-item">
-          <div class="contact-icon">📍</div>
-          <div>
-            <h4>Διεύθυνση</h4>
-            <p>Παπασταθοπούλου 8, Πύργος Ηλείας, Ελλάδα 27100</p>
-          </div>
+    <!-- SPACE -->
+    <section id="space" class="space">
+      <div class="container">
+        <div class="section-title"><h2>Ο χώρος μας</h2></div>
+        <div class="gallery">
+        <a href="assets/gallery/01.webp" class="gallery-item"><img src="assets/gallery/01-thumb.webp" alt="Αίθουσα αισθητηριακής ολοκλήρωσης με αιώρα και τοίχο αναρρίχησης" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/02.webp" class="gallery-item"><img src="assets/gallery/02-thumb.webp" alt="Ράφια με θεραπευτικό υλικό και παιδικό τραπεζάκι" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/03.webp" class="gallery-item"><img src="assets/gallery/03-thumb.webp" alt="Αίθουσα θεραπείας με γραφείο και παιδικό τραπεζάκι" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/04.webp" class="gallery-item"><img src="assets/gallery/04-thumb.webp" alt="Τοίχος αναρρίχησης και πισίνα με μπαλάκια" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/05.webp" class="gallery-item"><img src="assets/gallery/05-thumb.webp" alt="Χώρος παιχνιδιού με τραπεζάκι και κουκλοθέατρο" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/06.webp" class="gallery-item"><img src="assets/gallery/06-thumb.webp" alt="Αίθουσα με γραφείο και παιδική καρέκλα" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/07.webp" class="gallery-item"><img src="assets/gallery/07-thumb.webp" alt="Παιδικό τραπεζάκι με χρωματιστές καρέκλες" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/08.webp" class="gallery-item"><img src="assets/gallery/08-thumb.webp" alt="Τραπεζάκι εργασίας με παιδικά καρεκλάκια" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/09.webp" class="gallery-item"><img src="assets/gallery/09-thumb.webp" alt="Αίθουσα με τραπεζάκι, πίνακα και παιχνίδια" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/10.webp" class="gallery-item"><img src="assets/gallery/10-thumb.webp" alt="Χώρος αναμονής με καναπέ" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/11.webp" class="gallery-item"><img src="assets/gallery/11-thumb.webp" alt="Γραφείο της επιστημονικά υπεύθυνης" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/12.webp" class="gallery-item"><img src="assets/gallery/12-thumb.webp" alt="Υλικό στοματοκινητικής θεραπείας" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/13.webp" class="gallery-item"><img src="assets/gallery/13-thumb.webp" alt="Αίθουσα αισθητηριακής ολοκλήρωσης" loading="lazy" width="480" height="360"></a>
+        <a href="assets/gallery/14.webp" class="gallery-item"><img src="assets/gallery/14-thumb.webp" alt="Είσοδος και χώρος αναμονής" loading="lazy" width="480" height="360"></a>
         </div>
-        <div class="contact-info-item">
-          <div class="contact-icon">☎️</div>
-          <div>
-            <h4>Τηλέφωνα</h4>
-            <p>
-              Σταθερό: <a href="tel:2621029798">26210 29798</a><br>
-              Κινητό: <a href="tel:6971849025">6971 849 025</a>
-            </p>
-          </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="team">
+      <div class="container">
+        <div class="section-title"><h2>Η Ομάδα μας</h2></div>
+        <div class="team-grid">
+        <article class="team-member">
+          <div class="member-avatar" aria-hidden="true">ΚΚ</div>
+          <h3>Κανδρή Κωνσταντίνα</h3>
+          <p>Λογοθεραπεύτρια - Ειδική Παιδαγωγός M.Ed.</p>
+          <span class="member-badge">Επιστημονικά Υπεύθυνη</span>
+        </article>
+        <article class="team-member">
+          <div class="member-avatar" aria-hidden="true">ΚΤ</div>
+          <h3>Τσούλη Κατερίνα</h3>
+          <p>Λογοθεραπεύτρια</p>
+        </article>
+        <article class="team-member">
+          <div class="member-avatar" aria-hidden="true">ΒΑ</div>
+          <h3>Αλεξανδρή Βιβή</h3>
+          <p>Λογοθεραπεύτρια</p>
+        </article>
+        <article class="team-member">
+          <div class="member-avatar" aria-hidden="true">ΙΠ</div>
+          <h3>Πέππα Ιωάννα</h3>
+          <p>Εργοθεραπεύτρια S.I. - Εκπαιδεύτρια Θεραπευτικής Ιππασίας</p>
+        </article>
+        <article class="team-member">
+          <div class="member-avatar" aria-hidden="true">ΠΣ</div>
+          <h3>Σωτηροπούλου Παναγιώτα</h3>
+          <p>Ψυχολόγος</p>
+        </article>
         </div>
-        <div class="contact-info-item">
-          <div class="contact-icon">✉️</div>
-          <div>
-            <h4>Email</h4>
-            <p><a href="mailto:konnakandri@gmail.com">konnakandri@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title"><h2>Επικοινωνήστε μαζί μας</h2></div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Στοιχεία Επικοινωνίας</h3>
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">📍</div>
+              <div>
+                <h4>Διεύθυνση</h4>
+                <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Παπασταθοπούλου+8,+Πύργος+27100" target="_blank" rel="noopener">Παπασταθοπούλου 8, Πύργος Ηλείας, 27100</a></p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">☎️</div>
+              <div>
+                <h4>Τηλέφωνα</h4>
+                <p>
+                  Σταθερό: <a href="tel:+302621029798">26210 29798</a><br>
+                  Κινητό: <a href="tel:+306971849025">6971 849 025</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <p><a href="mailto:konnakandri@gmail.com">konnakandri@gmail.com</a></p>
+              </div>
+            </div>
+            <p class="follow">Ακολουθήστε μας!</p>
+            <div class="social-links">
+          <a href="https://www.facebook.com/logotherapeia.pyrgos" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg aria-hidden="true" fill="#1877F2" viewBox="0 0 24 24"><path d="M21.8 0H2.2C1 0 0 .95 0 2.1v19.8C0 23.05 1 24 2.2 24h10.7v-9.3H9.7V11.1h3.2V8.4c0-3.1 1.9-4.8 4.7-4.8 1.3 0 2.5.1 2.8.2v3.3h-1.9c-1.5 0-1.9.7-1.9 1.9v2.5h3.8l-.5 3.6h-3.3V24h6.5c1.2 0 2.2-.95 2.2-2.1V2.1C24 .95 22.95 0 21.8 0"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/logotherapeiapyrgos/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg aria-hidden="true" fill="#E4405F" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58 0 4.85.07 1.17.07 1.95.24 2.41.41.5.2.86.43 1.24.81.38.38.61.74.81 1.23.18.46.35 1.25.42 2.43.07 1.28.07 1.65.07 4.85s0 3.57-.07 4.85c-.07 1.17-.24 1.95-.42 2.41-.2.5-.43.86-.81 1.24-.38.38-.74.61-1.24.81-.46.18-1.24.35-2.41.41-1.28.08-1.65.08-4.85.08s-3.57 0-4.85-.08c-1.17-.06-1.95-.23-2.41-.41-.5-.2-.86-.43-1.24-.81-.38-.38-.61-.74-.81-1.24-.18-.46-.35-1.24-.41-2.41C2.2 15.57 2.2 15.2 2.2 12s0-3.57.07-4.85c.06-1.17.23-1.95.41-2.41.2-.5.43-.86.81-1.24.38-.38.74-.61 1.24-.81.46-.18 1.24-.34 2.41-.41C8.43 2.2 8.8 2.2 12 2.2m0-2.2C8.74 0 8.33 0 7.05.07c-1.33.07-2.23.29-3.03.6-.86.34-1.6.79-2.36 1.54C.29 3.58-.16 4.32.18 5.18c.31.8.53 1.7.6 3.03C.07 8.33 0 8.74 0 12c0 3.26.07 3.67.18 4.95.07 1.33.29 2.23.6 3.03.34.86.79 1.6 1.54 2.36.76.75 1.5 1.21 2.36 1.54.8.32 1.7.54 3.03.61C8.33 23.93 8.74 24 12 24c3.26 0 3.67-.07 4.95-.18 1.33-.07 2.23-.29 3.03-.61.86-.33 1.6-.79 2.36-1.54.75-.76 1.21-1.5 1.54-2.36.31-.8.53-1.7.61-3.03.11-1.28.18-1.69.18-4.95s-.07-3.67-.18-4.95c-.07-1.33-.3-2.23-.61-3.03-.33-.86-.79-1.6-1.54-2.36-.76-.75-1.5-1.2-2.36-1.54-.8-.31-1.7-.53-3.03-.6C15.67.07 15.26 0 12 0z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.8" cy="5.2" r="1.1"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kandri/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg aria-hidden="true" fill="#0A66C2" viewBox="0 0 24 24"><path d="M19.8 3A2.2 2.2 0 0 1 22 5.2v13.6A2.2 2.2 0 0 1 19.8 21H4.2A2.2 2.2 0 0 1 2 18.8V5.2A2.2 2.2 0 0 1 4.2 3h15.6zm-6.985 14.345v-4.417c0-1.022-.376-1.721-1.317-1.721-.719 0-1.148.485-1.337.954-.069.168-.087.404-.087.638v4.546h-2.403V9.74h2.403v1.072c.27-.417.76-1.012 1.995-1.012 1.456 0 2.554.946 2.554 2.982v4.563h-2.407zm-7.107-8.14a1.394 1.394 0 1 1 0-2.786 1.394 1.394 0 0 1 0 2.786zm1.202 8.14V9.74h2.403v7.606H6.91zm14.496-14.346H2.594A2.586 2.586 0 0 0 0 5.517v13.019A2.585 2.585 0 0 0 2.594 21.12h18.815A2.586 2.586 0 0 0 24 18.537V5.517a2.585 2.585 0 0 0-2.594-2.514z"/></svg>
+          </a>
+            </div>
           </div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <h3>Στείλτε μας μήνυμα</h3>
+            <div class="form-group">
+              <label for="cf-name">Ονοματεπώνυμο *</label>
+              <input type="text" id="cf-name" name="name" class="form-control" autocomplete="name" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-phone">Τηλέφωνο *</label>
+                <input type="tel" id="cf-phone" name="phone" class="form-control" autocomplete="tel" required>
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" class="form-control" autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Μήνυμα *</label>
+              <textarea id="cf-message" name="message" class="form-control" rows="5" placeholder="π.χ. ηλικία παιδιού και τι σας απασχολεί" required></textarea>
+            </div>
+            <button type="submit" class="btn submit-btn">Αποστολή Μηνύματος</button>
+            <p class="form-note" id="form-note" role="status">Το μήνυμα θα ανοίξει στην εφαρμογή email σας, έτοιμο για αποστολή. Μπορείτε επίσης να μας καλέσετε στο <a href="tel:+302621029798">26210 29798</a>.</p>
+          </form>
         </div>
-       
-<div class="social-links">
-  <a href="https://www.facebook.com/logotherapeia.pyrgos" target="_blank" aria-label="Facebook">
-    <svg fill="#1877F2" viewBox="0 0 24 24"><path d="M21.8 0H2.2C1 0 0 .95 0 2.1v19.8C0 23.05 1 24 2.2 24h10.7v-9.3H9.7V11.1h3.2V8.4c0-3.1 1.9-4.8 4.7-4.8 1.3 0 2.5.1 2.8.2v3.3h-1.9c-1.5 0-1.9.7-1.9 1.9v2.5h3.8l-.5 3.6h-3.3V24h6.5c1.2 0 2.2-.95 2.2-2.1V2.1C24 .95 22.95 0 21.8 0"></path></svg>
-  </a>
-  <a href="https://www.instagram.com/logotherapeiapyrgos/" target="_blank" aria-label="Instagram">
-    <svg fill="#E4405F" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58 0 4.85.07 1.17.07 1.95.24 2.41.41.5.2.86.43 1.24.81.38.38.61.74.81 1.23.18.46.35 1.25.42 2.43.07 1.28.07 1.65.07 4.85s0 3.57-.07 4.85c-.07 1.17-.24 1.95-.42 2.41-.2.5-.43.86-.81 1.24-.38.38-.74.61-1.24.81-.46.18-1.24.35-2.41.41-1.28.08-1.65.08-4.85.08s-3.57 0-4.85-.08c-1.17-.06-1.95-.23-2.41-.41-.5-.2-.86-.43-1.24-.81-.38-.38-.61-.74-.81-1.24-.18-.46-.35-1.24-.41-2.41C2.2 15.57 2.2 15.2 2.2 12s0-3.57.07-4.85c.06-1.17.23-1.95.41-2.41.2-.5.43-.86.81-1.24.38-.38.74-.61 1.24-.81.46-.18 1.24-.34 2.41-.41C8.43 2.2 8.8 2.2 12 2.2m0-2.2C8.74 0 8.33 0 7.05.07c-1.33.07-2.23.29-3.03.6-.86.34-1.6.79-2.36 1.54C.29 3.58-.16 4.32.18 5.18c.31.8.53 1.7.6 3.03C.07 8.33 0 8.74 0 12c0 3.26.07 3.67.18 4.95.07 1.33.29 2.23.6 3.03.34.86.79 1.6 1.54 2.36.76.75 1.5 1.21 2.36 1.54.8.32 1.7.54 3.03.61C8.33 23.93 8.74 24 12 24c3.26 0 3.67-.07 4.95-.18 1.33-.07 2.23-.29 3.03-.61.86-.33 1.6-.79 2.36-1.54.75-.76 1.21-1.5 1.54-2.36.31-.8.53-1.7.61-3.03.11-1.28.18-1.69.18-4.95s-.07-3.67-.18-4.95c-.07-1.33-.3-2.23-.61-3.03-.33-.86-.79-1.6-1.54-2.36-.76-.75-1.5-1.2-2.36-1.54-.8-.31-1.7-.53-3.03-.6C15.67.07 15.26 0 12 0z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.8" cy="5.2" r="1.1"/></svg>
-  </a>
-  <a href="https://www.linkedin.com/in/kandri/" target="_blank" aria-label="LinkedIn">
-    <svg fill="#0A66C2" viewBox="0 0 24 24"><path d="M19.8 3A2.2 2.2 0 0 1 22 5.2v13.6A2.2 2.2 0 0 1 19.8 21H4.2A2.2 2.2 0 0 1 2 18.8V5.2A2.2 2.2 0 0 1 4.2 3h15.6zm-6.985 14.345v-4.417c0-1.022-.376-1.721-1.317-1.721-.719 0-1.148.485-1.337.954-.069.168-.087.404-.087.638v4.546h-2.403V9.74h2.403v1.072c.27-.417.76-1.012 1.995-1.012 1.456 0 2.554.946 2.554 2.982v4.563h-2.407zm-7.107-8.14a1.394 1.394 0 1 1 0-2.786 1.394 1.394 0 0 1 0 2.786zm1.202 8.14V9.74h2.403v7.606H6.91zm14.496-14.346H2.594A2.586 2.586 0 0 0 0 5.517v13.019A2.585 2.585 0 0 0 2.594 21.12h18.815A2.586 2.586 0 0 0 24 18.537V5.517a2.585 2.585 0 0 0-2.594-2.514z"/></svg>
-  </a>
-</div>
-        <div style="margin-top:20px;">
+        <div class="map">
           <iframe
-            src="https://www.google.com/maps?q=Παπασταθοπούλου+8,+Πύργος+Ηλείας,+Ελλάδα+27100&output=embed"
-            width="100%" height="300" style="border:0;" allowfullscreen=""
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+            title="Χάρτης: Παπασταθοπούλου 8, Πύργος Ηλείας"
+            src="https://www.google.com/maps?q=Παπασταθοπούλου+8,+Πύργος+Ηλείας,+Ελλάδα+27100&amp;output=embed"
+            width="100%" height="320" style="border:0;" allowfullscreen
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
-      <form class="contact-form">
-        <input type="text" class="form-control" placeholder="Ονοματεπώνυμο" required>
-        <input type="email" class="form-control" placeholder="Email" required>
-        <input type="tel" class="form-control" placeholder="Τηλέφωνο">
-        <textarea class="form-control" rows="5" placeholder="Μήνυμα" required></textarea>
-        <button type="submit" class="submit-btn">Αποστολή Μηνύματος</button>
-      </form>
-    </div>
-  </div>
-</section>
-
+    </section>
+  </main>
 
   <footer>
-    <div class="container">
-      <p>© 2025 Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα. Όλα τα δικαιώματα διατηρούνται.</p>
+    <div class="container footer-content">
+      <p><strong>Κέντρο Ειδικών Θεραπειών Κανδρή Χρ. Κωνσταντίνα</strong><br>Παπασταθοπούλου 8, Πύργος Ηλείας · <a href="tel:+302621029798">26210 29798</a></p>
+      <p>© <span id="year">2025</span> Όλα τα δικαιώματα διατηρούνται.</p>
     </div>
   </footer>
-<link rel="stylesheet" href="style.css">
-  
-<!-- Accessibility Toolbar -->
-<link rel="stylesheet" href="css/accessibility.css">
-<nav id="a11y-toolbar" aria-label="Εργαλειοθήκη Προσβασιμότητας">
-  <button id="a11y-toggle" aria-controls="a11y-panel" aria-expanded="false" title="Προβολή προσβασιμότητας">♿</button>
-  <div id="a11y-panel" style="display:none;">
-    <ul>
-      <li><button onclick="resizeFont(1)" title="Μεγέθυνση γραμματοσειράς">A+</button></li>
-      <li><button onclick="resizeFont(-1)" title="Σμίκρυνση γραμματοσειράς">A-</button></li>
-      <li><button onclick="toggleGray()" title="Γκρι κλίμακα">⚫ Γκρι</button></li>
-      <li><button onclick="toggleContrast()" title="Υψηλή αντίθεση">🌗 Αντίθεση</button></li>
-      <li><button onclick="toggleInvert()" title="Αντιστροφή χρωμάτων">🔃 Αντιστροφή</button></li>
-      <li><button onclick="toggleUnderlineLinks()" title="Υπογράμμιση συνδέσμων">_Σύνδεσμοι_</button></li>
-      <li><button onclick="toggleLegible()" title="Ευαναγνωσία κειμένου">🔡 Ευαναγνωσία</button></li>
-      <li><button onclick="clearContent()" title="Απόκρυψη extra περιεχομένων">🧹 Εστίαση</button></li>
-      <li><button onclick="resetAccessibility()" title="Επαναφορά ρυθμίσεων">↺ Επαναφορά</button></li>
-    </ul>
+
+  <a href="tel:+306971849025" class="call-fab" aria-label="Κλήση: 6971 849 025">☎️</a>
+
+  <!-- Gallery lightbox -->
+  <dialog id="lightbox" aria-label="Φωτογραφία χώρου">
+    <button class="lightbox-close" aria-label="Κλείσιμο">×</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Προηγούμενη">‹</button>
+    <img src="" alt="">
+    <button class="lightbox-nav lightbox-next" aria-label="Επόμενη">›</button>
+  </dialog>
+
+  <!-- Accessibility Toolbar -->
+  <div id="a11y-toolbar" role="region" aria-label="Εργαλειοθήκη Προσβασιμότητας">
+    <button id="a11y-toggle" aria-controls="a11y-panel" aria-expanded="false" title="Ρυθμίσεις προσβασιμότητας" aria-label="Ρυθμίσεις προσβασιμότητας">♿</button>
+    <div id="a11y-panel" hidden>
+      <ul>
+        <li><button type="button" data-a11y="font-up" title="Μεγέθυνση γραμματοσειράς">A+</button></li>
+        <li><button type="button" data-a11y="font-down" title="Σμίκρυνση γραμματοσειράς">A-</button></li>
+        <li><button type="button" data-a11y="gray-mode" title="Γκρι κλίμακα">⚫ Γκρι</button></li>
+        <li><button type="button" data-a11y="high-contrast" title="Υψηλή αντίθεση">🌗 Αντίθεση</button></li>
+        <li><button type="button" data-a11y="invert-mode" title="Αντιστροφή χρωμάτων">🔃 Αντιστροφή</button></li>
+        <li><button type="button" data-a11y="underline-links" title="Υπογράμμιση συνδέσμων">_Σύνδεσμοι_</button></li>
+        <li><button type="button" data-a11y="legible-mode" title="Ευαναγνωσία κειμένου">🔡 Ευαναγνωσία</button></li>
+        <li><button type="button" data-a11y="reset" title="Επαναφορά ρυθμίσεων">↺ Επαναφορά</button></li>
+      </ul>
+    </div>
   </div>
-</nav>
-<script src="js/accessibility.js"></script>
 
+  <script src="js/main.js" defer></script>
+  <script src="js/accessibility.js" defer></script>
 </body>
 </html>
-
-  <script>
-    // Mobile Menu Toggle
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-      document.querySelector('nav ul').classList.toggle('active');
-    });
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-        document.querySelector('nav ul').classList.remove('active');
-      });
-    });
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
