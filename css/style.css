@@ -45,6 +45,7 @@ p a:hover, .contact-info a:hover { text-decoration: underline; }
 .site-header.scrolled { box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); }
 .header-content { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-weight: 800; font-size: 20px; line-height: 1.15; }
+.logo picture { display: flex; flex: none; }
 .logo img { background: var(--white); border-radius: 50%; padding: 3px; width: 44px; height: 44px; }
 .logo-highlight { font-weight: 400; opacity: .92; }
 nav ul { display: flex; align-items: center; list-style: none; gap: 26px; }
