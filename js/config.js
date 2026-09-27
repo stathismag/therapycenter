@@ -8,5 +8,5 @@ window.SITE_CONFIG = {
   // Σύνδεσμος για νέα κριτική στο Google, από business.google.com →
   // «Ζητήστε κριτικές» (μορφή https://g.page/r/.../review).
   // Κενό = το κουμπί «Γράψτε κριτική» δεν εμφανίζεται.
-  googleReviewUrl: ''
+  googleReviewUrl: '/kritiki'  // → netlify.toml: ανακατεύθυνση στο προφίλ Google
 };
