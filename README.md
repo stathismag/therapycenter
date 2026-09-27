@@ -32,6 +32,13 @@
 2. τρέξτε `python3 tools/build_services.py` (ξαναφτιάχνει τις σελίδες και το `sitemap.xml`)
 3. κάντε commit τα αρχεία που άλλαξαν
 
+## Κριτικές Google
+
+- Η διεύθυνση **logotherapeia-pyrgos.gr/kritiki** είναι ανακατεύθυνση στο `netlify.toml`. Όταν υπάρξει ο σύνδεσμος
+  κριτικής του Google Business Profile, αλλάξτε το `to` της ανακατεύθυνσης. Τα τυπωμένα QR codes μένουν ίδια.
+- Κάρτα και αφίσα με QR code για εκτύπωση: `python3 tools/make_review_card.py` (τα αρχεία βγαίνουν στον φάκελο `print/`,
+  που δεν ανεβαίνει στο GitHub). Απαιτεί `pip install qrcode pillow`.
+
 ## SEO
 
 - Κύρια διεύθυνση: https://logotherapeia-pyrgos.gr/ (canonical σε κάθε σελίδα).
