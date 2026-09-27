@@ -156,11 +156,28 @@ def page(p):
 
       <section class="svc-section">
         <h2>Πώς ξεκινάμε</h2>
-        <ol class="svc-steps">
-          <li><strong>Επικοινωνία</strong><span>Μας καλείτε ή μας στέλνετε μήνυμα και κλείνουμε ραντεβού.</span></li>
-          <li><strong>Αξιολόγηση</strong><span>Συζητάμε με τους γονείς και γνωρίζουμε το παιδί μέσα από δραστηριότητες και παιχνίδι.</span></li>
-          <li><strong>Εξατομικευμένο πρόγραμμα</strong><span>Σας εξηγούμε τα ευρήματα και προτείνουμε πρόγραμμα με σαφείς στόχους.</span></li>
-          <li><strong>Συνεργασία & ενημέρωση</strong><span>Παρακολουθούμε την πρόοδο και σας δίνουμε ιδέες για το σπίτι.</span></li>
+        <ol class="journey" data-journey>
+          <svg class="journey-path" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M125 20 Q250 -4 375 20 T625 20 T875 20"/></svg>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">📞</span>
+            <h3><span class="journey-num">1.</span> Επικοινωνία</h3>
+            <p>Μας καλείτε ή μας στέλνετε μήνυμα και κλείνουμε ραντεβού.</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">🔍</span>
+            <h3><span class="journey-num">2.</span> Αξιολόγηση</h3>
+            <p>Συζητάμε με τους γονείς και γνωρίζουμε το παιδί μέσα από δραστηριότητες και παιχνίδι.</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">🧩</span>
+            <h3><span class="journey-num">3.</span> Εξατομικευμένο πρόγραμμα</h3>
+            <p>Σας εξηγούμε τα ευρήματα και προτείνουμε πρόγραμμα με σαφείς στόχους.</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">📈</span>
+            <h3><span class="journey-num">4.</span> Πρόοδος &amp; ενημέρωση</h3>
+            <p>Παρακολουθούμε την πρόοδο και σας δίνουμε ιδέες για το σπίτι.</p>
+          </li>
         </ol>
       </section>
 {photos}
@@ -225,6 +242,7 @@ def page(p):
 
   <script src="/js/config.js"></script>
   <script src="/js/page.js" defer></script>
+  <script src="/js/journey.js" defer></script>
   <script src="/js/consent.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
 </body>

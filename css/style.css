@@ -359,10 +359,6 @@ footer a { color: var(--white); font-weight: 600; }
 .svc-check li { position: relative; padding-left: 30px; color: var(--text); }
 .svc-check li::before { content: '✔'; position: absolute; left: 0; top: 0; color: var(--accent3); font-weight: 800; }
 .svc-body .service-card h3 { margin-top: 0; }
-.svc-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.svc-steps li { counter-increment: step; background: var(--accent1); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
-.svc-steps li::before { content: counter(step); width: 36px; height: 36px; border-radius: 50%; background: var(--accent2); color: var(--white); font-weight: 800; display: flex; align-items: center; justify-content: center; }
-.svc-steps span { color: var(--light-text); font-size: 15px; }
 .svc-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
 .svc-photos img { border-radius: 14px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; box-shadow: var(--shadow); }
 .svc-faq { margin: 0; }
@@ -386,7 +382,7 @@ footer a { color: var(--white); font-weight: 600; }
 .motto-bubble { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .motto-bubble path {
   fill: rgba(255, 255, 255, .1); stroke: #ffd3b0; stroke-width: 2.5; stroke-linejoin: round;
-  vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 0;
+  stroke-dasharray: 1 2; stroke-dashoffset: 0;
   animation: bubbleDraw 1.3s .5s cubic-bezier(.65, 0, .35, 1) both;
 }
 @keyframes bubbleDraw {
@@ -421,3 +417,66 @@ footer a { color: var(--white); font-weight: 600; }
 }
 .motto-letters span:nth-child(even) { --r: -14deg; }
 @media (max-width: 560px) { .motto-wrap { padding: 12px 22px 24px; } }
+
+/* JOURNEY ("Πώς ξεκινάμε"): a path is drawn through 4 steps when scrolled into view.
+   Final state is the default; js/journey.js adds .journey--animate (only if motion
+   is allowed) and then .is-visible when the list reaches the viewport. */
+.journey-section { background: var(--white); }
+.journey { list-style: none; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; }
+.journey-path { position: absolute; left: 0; top: 18px; width: 100%; height: 40px; overflow: visible; z-index: 0; }
+.journey-path path {
+  fill: none; stroke: var(--accent2); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1 2; stroke-dashoffset: 0;
+}
+.journey-step { position: relative; z-index: 1; text-align: center; padding: 0 14px; }
+.journey-dot {
+  width: 76px; height: 76px; margin: 0 auto 16px; border-radius: 50%; font-size: 32px;
+  display: flex; align-items: center; justify-content: center; position: relative;
+  background: var(--white); border: 4px solid var(--primary-color); box-shadow: 0 8px 22px rgba(110, 72, 170, .22);
+}
+.journey-step:nth-of-type(2) .journey-dot { border-color: var(--accent3); }
+.journey-step:nth-of-type(3) .journey-dot { border-color: var(--accent2); }
+.journey-step:nth-of-type(4) .journey-dot { border-color: var(--accent4); }
+.journey-step h3 { font-size: 19px; color: var(--primary-color); margin-bottom: 6px; }
+.journey-num { color: var(--accent2); }
+.journey-step p { color: var(--light-text); font-size: 15px; max-width: 240px; margin: 0 auto; }
+.journey-cta { text-align: center; margin-top: 40px; }
+.svc-body .journey { margin-top: 8px; }
+
+/* Before it is visible */
+.journey--animate .journey-path path { stroke-dashoffset: 1; }
+.journey--animate .journey-dot { opacity: 0; transform: scale(.4); }
+.journey--animate .journey-step h3, .journey--animate .journey-step p { opacity: 0; transform: translateY(12px); }
+/* Drawing */
+.journey--animate.is-visible .journey-path path { transition: stroke-dashoffset 1.8s cubic-bezier(.65, 0, .35, 1) .2s; stroke-dashoffset: 0; }
+.journey--animate.is-visible .journey-dot { animation: dotPop .6s cubic-bezier(.34, 1.56, .64, 1) both; }
+.journey--animate.is-visible .journey-step h3,
+.journey--animate.is-visible .journey-step p { transition: opacity .5s ease-out, transform .5s ease-out; opacity: 1; transform: none; }
+.journey--animate.is-visible .journey-step:nth-of-type(1) .journey-dot { animation-delay: .1s; }
+.journey--animate.is-visible .journey-step:nth-of-type(2) .journey-dot { animation-delay: .65s; }
+.journey--animate.is-visible .journey-step:nth-of-type(3) .journey-dot { animation-delay: 1.2s; }
+.journey--animate.is-visible .journey-step:nth-of-type(4) .journey-dot { animation-delay: 1.75s; }
+.journey--animate.is-visible .journey-step:nth-of-type(1) :is(h3, p) { transition-delay: .3s; }
+.journey--animate.is-visible .journey-step:nth-of-type(2) :is(h3, p) { transition-delay: .85s; }
+.journey--animate.is-visible .journey-step:nth-of-type(3) :is(h3, p) { transition-delay: 1.4s; }
+.journey--animate.is-visible .journey-step:nth-of-type(4) :is(h3, p) { transition-delay: 1.95s; }
+@keyframes dotPop {
+  0% { opacity: 0; transform: scale(.4); }
+  70% { opacity: 1; transform: scale(1.12); box-shadow: 0 0 0 12px rgba(255, 142, 60, .18); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* Mobile: vertical path on the left */
+@media (max-width: 760px) {
+  .journey { grid-template-columns: 1fr; gap: 26px; padding-left: 4px; }
+  .journey-path { display: none; }
+  .journey::before {
+    content: ''; position: absolute; left: 34px; top: 30px; bottom: 30px; width: 4px; border-radius: 2px;
+    background: var(--accent2); transform-origin: top;
+  }
+  .journey-step { display: grid; grid-template-columns: 64px 1fr; column-gap: 16px; text-align: left; padding: 0; }
+  .journey-dot { grid-row: span 2; width: 64px; height: 64px; font-size: 26px; margin: 0; }
+  .journey-step h3 { align-self: end; margin-bottom: 2px; }
+  .journey-step p { margin: 0; max-width: none; }
+  .journey--animate .journey::before, .journey--animate::before { transform: scaleY(0); }
+  .journey--animate.is-visible::before { transition: transform 1.9s cubic-bezier(.65, 0, .35, 1) .2s; transform: scaleY(1); }
+}
