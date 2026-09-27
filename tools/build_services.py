@@ -84,6 +84,7 @@ def page(p):
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,7 +100,7 @@ def page(p):
   <header id="header" class="site-header scrolled">
     <div class="container header-content">
       <a href="/" class="logo">
-        <img src="/assets/logo-160.png" alt="" width="44" height="44">
+        <picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/logo.svg"><img src="/assets/logo-animated.svg" alt="" width="44" height="44"></picture>
         <span class="logo-text">Κέντρο <span class="logo-highlight">Ειδικών Θεραπειών</span></span>
       </a>
       <button class="mobile-menu-btn" id="mobile-btn" aria-controls="nav-list" aria-expanded="false" aria-label="Μενού">
@@ -155,11 +156,28 @@ def page(p):
 
       <section class="svc-section">
         <h2>Πώς ξεκινάμε</h2>
-        <ol class="svc-steps">
-          <li><strong>Επικοινωνία</strong><span>Μας καλείτε ή μας στέλνετε μήνυμα και κλείνουμε ραντεβού.</span></li>
-          <li><strong>Αξιολόγηση</strong><span>Συζητάμε με τους γονείς και γνωρίζουμε το παιδί μέσα από δραστηριότητες και παιχνίδι.</span></li>
-          <li><strong>Εξατομικευμένο πρόγραμμα</strong><span>Σας εξηγούμε τα ευρήματα και προτείνουμε πρόγραμμα με σαφείς στόχους.</span></li>
-          <li><strong>Συνεργασία & ενημέρωση</strong><span>Παρακολουθούμε την πρόοδο και σας δίνουμε ιδέες για το σπίτι.</span></li>
+        <ol class="journey" data-journey>
+          <svg class="journey-path" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M125 20 Q250 -4 375 20 T625 20 T875 20"/></svg>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">📞</span>
+            <h3><span class="journey-num">1.</span> Επικοινωνία</h3>
+            <p>Μας καλείτε ή μας στέλνετε μήνυμα και κλείνουμε ραντεβού.</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">🔍</span>
+            <h3><span class="journey-num">2.</span> Αξιολόγηση</h3>
+            <p>Συζητάμε με τους γονείς και γνωρίζουμε το παιδί μέσα από δραστηριότητες και παιχνίδι.</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">🧩</span>
+            <h3><span class="journey-num">3.</span> Εξατομικευμένο πρόγραμμα</h3>
+            <p>Σας εξηγούμε τα ευρήματα και προτείνουμε πρόγραμμα με σαφείς στόχους.</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-dot" aria-hidden="true">📈</span>
+            <h3><span class="journey-num">4.</span> Πρόοδος &amp; ενημέρωση</h3>
+            <p>Παρακολουθούμε την πρόοδο και σας δίνουμε ιδέες για το σπίτι.</p>
+          </li>
         </ol>
       </section>
 {photos}
@@ -224,6 +242,7 @@ def page(p):
 
   <script src="/js/config.js"></script>
   <script src="/js/page.js" defer></script>
+  <script src="/js/journey.js" defer></script>
   <script src="/js/consent.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
 </body>

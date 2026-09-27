@@ -23,3 +23,12 @@
   to = "/404.html"
   status = 404
   force = true
+
+# Σύντομη διεύθυνση για κριτικές (τυπώνεται στο QR code της κάρτας).
+# Οδηγεί στη φόρμα κριτικής του Google Business Profile (g.page/r/.../review).
+# Αν αλλάξει ο σύνδεσμος, αλλάζει μόνο το "to". Τα τυπωμένα QR codes δεν χρειάζεται να αλλάξουν.
+[[redirects]]
+  from = "/kritiki"
+  to = "https://g.page/r/CXj9fTBK4nNHEAE/review"
+  status = 302
+  force = true

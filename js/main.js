@@ -28,6 +28,26 @@
   var reviewBtn = document.getElementById('review-write');
   if (reviewUrl && reviewBtn) { reviewBtn.href = reviewUrl; reviewBtn.hidden = false; }
 
+  // Motto speech bubble: redraw the outline in pixel units for the current size,
+  // so the stroke keeps an even width and the draw-on animation covers the whole outline.
+  var bubble = document.querySelector('.motto-bubble');
+  function drawBubble() {
+    if (!bubble) return;
+    var w = bubble.clientWidth, h = bubble.clientHeight;
+    if (!w || !h) return;
+    var r = Math.min(26, h * 0.28), tail = 16, b = h - tail, tx = Math.max(40, w * 0.14), m = 2;
+    bubble.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    bubble.removeAttribute('preserveAspectRatio');
+    bubble.querySelector('path').setAttribute('d',
+      'M' + (m + r) + ' ' + m + ' H' + (w - m - r) + ' Q' + (w - m) + ' ' + m + ' ' + (w - m) + ' ' + (m + r) +
+      ' V' + (b - r) + ' Q' + (w - m) + ' ' + b + ' ' + (w - m - r) + ' ' + b +
+      ' H' + (tx + 26) + ' L' + (tx - 8) + ' ' + (h - m) + ' L' + tx + ' ' + b +
+      ' H' + (m + r) + ' Q' + m + ' ' + b + ' ' + m + ' ' + (b - r) +
+      ' V' + (m + r) + ' Q' + m + ' ' + m + ' ' + (m + r) + ' ' + m + ' Z');
+  }
+  drawBubble();
+  window.addEventListener('resize', drawBubble);
+
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
