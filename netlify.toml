@@ -25,10 +25,10 @@
   force = true
 
 # Σύντομη διεύθυνση για κριτικές (τυπώνεται στο QR code της κάρτας).
-# Τώρα: ο σύνδεσμος του Κέντρου στους Χάρτες Google. Όταν υπάρξει ο σύνδεσμος κριτικής του
-# Google Business Profile (g.page/r/.../review), αντικαταστήστε το "to" με αυτόν. Τα τυπωμένα QR codes δεν χρειάζεται να αλλάξουν.
+# Οδηγεί στη φόρμα κριτικής του Google Business Profile (g.page/r/.../review).
+# Αν αλλάξει ο σύνδεσμος, αλλάζει μόνο το "to". Τα τυπωμένα QR codes δεν χρειάζεται να αλλάξουν.
 [[redirects]]
   from = "/kritiki"
-  to = "https://maps.app.goo.gl/ujL4peEPKeiAZipB7"
+  to = "https://g.page/r/CXj9fTBK4nNHEAE/review"
   status = 302
   force = true
