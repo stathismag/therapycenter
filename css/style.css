@@ -502,3 +502,13 @@ footer a { color: var(--white); font-weight: 600; }
 .fb-frame { display: block; margin: 0 auto; max-width: 100%; border: 0; border-radius: 12px; background: var(--white); box-shadow: var(--shadow); }
 .fb-hide { margin-top: 12px; font-size: 14px; color: var(--light-text); }
 @media (max-width: 960px) { .news-content { grid-template-columns: 1fr; } .news-text { text-align: center; } .news-follow { justify-content: center; } }
+
+/* Floating buttons on phones: smaller, closer to the corners, hidden while scrolling down (js/fab.js) */
+@media (max-width: 1080px) {
+  .call-fab { width: 48px; height: 48px; font-size: 21px; right: 12px; bottom: 12px; }
+  #a11y-toolbar { left: 12px; bottom: 12px; }
+  #a11y-toolbar #a11y-toggle { width: 44px; height: 44px; font-size: 1.35em; }
+  .call-fab, #a11y-toolbar { transition: transform .3s ease, opacity .3s ease; }
+  .fab-hidden .call-fab, .fab-hidden #a11y-toolbar { transform: translateY(90px); opacity: 0; pointer-events: none; }
+  footer { padding-bottom: 80px; }
+}

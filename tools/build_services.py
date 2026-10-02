@@ -245,6 +245,7 @@ def page(p):
   <script src="/js/journey.js" defer></script>
   <script src="/js/consent.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
+  <script src="/js/fab.js" defer></script>
 </body>
 </html>
 """
